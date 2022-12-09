@@ -2,14 +2,49 @@
 {
     public class KRA
     {
-        private List<double> _term1;
-        private List<double> _term2;
-        private List<double> _term3;
+        public double elasticAl;
+        public double elasticCu;
+        public double r;
+        public double rIndex;
+        public double n;
+        public string regressionExspressionAl;
+        public string regressionExpressionCu;
+        private List<double> _alCreated;
+        private List<double> _alBought;
+        private List<double> _cuCreated;
+        private List<double> _cuBought;
+        private MathHelper _mathHelper = new MathHelper();
+        public double countA0;
+        public double countA1;
 
-        public KRA() { }
-
-        public void setValues(List<double> t1, List<double> t2, List<double> t3) {
-            this._term1 = t1; this._term2 = t2; this._term3 = t3;
+        public void setValues(List<double> alCreated, List<double> alBought, List<double> cuCreated, List<double> cuBought) {
+            this._alCreated = alCreated; this._alBought = alBought; this._cuCreated = cuCreated; this._cuBought = cuBought;
         }
+
+        public void startKra()
+        {
+            double a0Al = this.a0(this._alCreated, this._alBought);
+            double a1Al = this.a1(this._alCreated, this._alBought);
+            double a0Cu = this.a0(this._cuCreated, this._cuBought);
+            double a1Cu = this.a1(this._cuCreated, this._cuBought);
+            this.countA0 = a0Al;
+            this.countA1 = a1Al;
+            this.regressionExspressionAl = $"{a0Al} + {a1Al}x";
+            this.regressionExpressionCu = $"{a0Cu} + {a1Cu}x";
+
+            this.elasticAl = this.calculateElastic(this._alCreated, this._alBought, a1Al);
+            this.elasticCu = this.calculateElastic(this._cuCreated, this._cuBought, a1Cu);
+            this.r = this.calculateR(this._alCreated, this._alBought);
+        }
+
+        private double a0(List<double> x, List<double> y) => (this._mathHelper.getSumValue(y) * this._mathHelper.getSumSquared(x) - this._mathHelper.getSumListsMultiplied(x, y) * this._mathHelper.getSumValue(x)) / (x.Count * this._mathHelper.getSumSquared(x) - Math.Pow(this._mathHelper.getSumValue(x), 2));
+
+        private double a1(List<double> x, List<double> y) => (x.Count * this._mathHelper.getSumListsMultiplied(x, y) - this._mathHelper.getSumValue(x) * this._mathHelper.getSumValue(y)) / (x.Count * this._mathHelper.getSumSquared(x) - Math.Pow(this._mathHelper.getSumValue(x), 2));
+
+        private double calculateElastic(List<double> x, List<double> y, double a1) => a1 * this._mathHelper.getAverageValue(x) / this._mathHelper.getAverageValue(y);
+
+        private double calculateR(List<double> x, List<double> y) => (this._mathHelper.getSumListsMultiplied(x, y) - (this._mathHelper.getSumValue(x) * this._mathHelper.getSumValue(y) / x.Count)) / Math.Sqrt((this._mathHelper.getSumSquared(x) - (Math.Pow(this._mathHelper.getSumValue(x), 2)) / x.Count) * (this._mathHelper.getSumSquared(y) - (Math.Pow(this._mathHelper.getSumValue(y), 2)) / x.Count));
+
+        private double calculateSigmaY(List<double> y) => (this._mathHelper.getSumSquared(y) / y.Count) - Math.Pow((this._mathHelper.getSumValue(y) / y.Count), 2);
     }
 }

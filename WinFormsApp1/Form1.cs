@@ -1,4 +1,4 @@
-namespace WinFormsApp1
+﻿namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
@@ -14,10 +14,17 @@ namespace WinFormsApp1
             try
             {
                 kra.setValues(
-                    readDataGrid(0),
-                    readDataGrid(1),
-                    readDataGrid(2)
-                ); 
+                    new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 },
+                    new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72 , 5 },
+                    new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 },
+                    new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 }
+                );
+                kra.startKra();
+                label1.Text = $"Эластичность {kra.elasticAl}";
+                label2.Text = $"r {kra.r}";
+                label3.Text = $"a0 {kra.countA0}";
+                label4.Text = $"a1 {kra.countA1}";
+
             }
             catch(Exception exc)
             {
