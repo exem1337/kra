@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp1
+﻿using System.Diagnostics;
+
+namespace WinFormsApp1
 {
     public class MathHelper
     {
@@ -59,6 +61,19 @@
                 sum += Math.Pow(v, 2);
             }
 
+            return sum;
+        }
+
+        public double getSquaredDifference(List<double> x, List<double> y, double a0, double a1)
+        {
+            double sum = 0;
+
+            for (int i = 0; i < x.Count; i++)
+            {
+                Debug.WriteLine($"f {Math.Pow(y[i] - (a0 + a1 * x[i]), 2)}, a0 {a0}, a1 {a1}, yi {y[i]}, xi {x[i]}");
+                sum += Math.Pow(y[i] - (a0 + a1 * x[i]) , 2);
+            }
+            Debug.WriteLine(sum);
             return sum;
         }
     }

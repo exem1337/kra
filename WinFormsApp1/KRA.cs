@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp1
+﻿using System.Diagnostics;
+
+namespace WinFormsApp1
 {
     public class KRA
     {
@@ -7,8 +9,8 @@
         public double r;
         public double rIndex;
         public double n;
-        public string regressionExspressionAl;
-        public string regressionExpressionCu;
+        public List<double> regressionExspressionAl;
+        public List<double> regressionExpressionCu;
         private List<double> _alCreated;
         private List<double> _alBought;
         private List<double> _cuCreated;
@@ -16,6 +18,9 @@
         private MathHelper _mathHelper = new MathHelper();
         public double countA0;
         public double countA1;
+        public double sigmaY;
+        public double sigmaYX;
+        public double bigR;
 
         public void setValues(List<double> alCreated, List<double> alBought, List<double> cuCreated, List<double> cuBought) {
             this._alCreated = alCreated; this._alBought = alBought; this._cuCreated = cuCreated; this._cuBought = cuBought;
@@ -29,9 +34,9 @@
             double a1Cu = this.a1(this._cuCreated, this._cuBought);
             this.countA0 = a0Al;
             this.countA1 = a1Al;
-            this.regressionExspressionAl = $"{a0Al} + {a1Al}x";
-            this.regressionExpressionCu = $"{a0Cu} + {a1Cu}x";
-
+            this.sigmaY = this.calculateSigmaY(this._alBought);
+            this.sigmaYX = this.calculateSigmaYX(this._alCreated, this._alBought);
+            this.bigR = this.calculateRBig(this._alCreated, this._alBought);
             this.elasticAl = this.calculateElastic(this._alCreated, this._alBought, a1Al);
             this.elasticCu = this.calculateElastic(this._cuCreated, this._cuBought, a1Cu);
             this.r = this.calculateR(this._alCreated, this._alBought);
@@ -46,5 +51,9 @@
         private double calculateR(List<double> x, List<double> y) => (this._mathHelper.getSumListsMultiplied(x, y) - (this._mathHelper.getSumValue(x) * this._mathHelper.getSumValue(y) / x.Count)) / Math.Sqrt((this._mathHelper.getSumSquared(x) - (Math.Pow(this._mathHelper.getSumValue(x), 2)) / x.Count) * (this._mathHelper.getSumSquared(y) - (Math.Pow(this._mathHelper.getSumValue(y), 2)) / x.Count));
 
         private double calculateSigmaY(List<double> y) => (this._mathHelper.getSumSquared(y) / y.Count) - Math.Pow((this._mathHelper.getSumValue(y) / y.Count), 2);
+
+        private double calculateSigmaYX(List<double> x, List<double> y) => this.sigmaY - (this._mathHelper.getSquaredDifference(x, y, this.countA0, this.countA1) / x.Count);
+
+        private double calculateRBig(List<double> x, List<double> y) => Math.Sqrt(1 - (this._mathHelper.getSquaredDifference(x, y, this.countA0, this.countA1) / x.Count) / this.sigmaY);
     }
 }
