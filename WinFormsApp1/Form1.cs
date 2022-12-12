@@ -21,13 +21,13 @@
                 );
                 kra.startKra();
                 label1.Text = $"Эластичность {kra.elasticAl}";
-                label2.Text = $"r {kra.r}";
-                label3.Text = $"a0 {kra.countA0}";
-                label4.Text = $"a1 {kra.countA1}";
+                label2.Text = $"Коэффициент корреляции r : {kra.r}";
+                label3.Text = $"Параметр a0 : {kra.countA0}";
+                label4.Text = $"Параметр a1 : {kra.countA1}";
                 label5.Text = $"sigmaY {kra.sigmaY}";
                 label6.Text = $"sigmaYX {kra.sigmaYX}";
-                label7.Text = $"big R {kra.bigR}";
-                label8.Text = $"Уравнение регрессии {kra.regressionExspressionAl}";
+                label7.Text = $"Коэффициент детерминации R : {kra.bigR}";
+                label8.Text = $"Уравнение регрессии : {kra.regressionExspressionAl}";
             }
             catch(Exception exc)
             {
