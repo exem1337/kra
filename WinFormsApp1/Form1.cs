@@ -58,5 +58,41 @@
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            double max = 0;
+            string maxi = "";
+
+            foreach (DataGridViewRow row in this.dataGridView2.Rows)
+            {
+
+                if (Convert.ToString(row.Cells[0].Value) == "")
+                    break;
+                max = Convert.ToDouble(row.Cells[1].Value);
+                for (int i = 2; i < 5; i++)
+                {
+                    if (max < Convert.ToDouble(row.Cells[i].Value))
+                    {
+                        max = Convert.ToDouble(row.Cells[i].Value);
+                    }
+                }
+
+                row.Cells[5].Value = max.ToString();
+            }
+            foreach (DataGridViewRow row in this.dataGridView2.Rows)
+            {
+                if (max < Convert.ToDouble(row.Cells[5].Value))
+                {
+                    max = Convert.ToDouble(row.Cells[5].Value);
+                    maxi = row.Cells[0].Value.ToString();
+                    dataGridView1.ClearSelection();
+                    row.Selected = true;
+                }
+            }
+            label12.Text = maxi;
+            label12.Visible = true;
+            label11.Visible = true;
+        }
     }
 }
