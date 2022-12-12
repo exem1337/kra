@@ -27,6 +27,7 @@
                 label5.Text = $"sigmaY {kra.sigmaY}";
                 label6.Text = $"sigmaYX {kra.sigmaYX}";
                 label7.Text = $"big R {kra.bigR}";
+                label8.Text = $"Уравнение регрессии {kra.regressionExspressionAl}";
             }
             catch(Exception exc)
             {

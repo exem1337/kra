@@ -70,10 +70,9 @@ namespace WinFormsApp1
 
             for (int i = 0; i < x.Count; i++)
             {
-                Debug.WriteLine($"f {Math.Pow(y[i] - (a0 + a1 * x[i]), 2)}, a0 {a0}, a1 {a1}, yi {y[i]}, xi {x[i]}");
                 sum += Math.Pow(y[i] - (a0 + a1 * x[i]) , 2);
             }
-            Debug.WriteLine(sum);
+            
             return sum;
         }
     }

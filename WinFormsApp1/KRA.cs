@@ -9,8 +9,8 @@ namespace WinFormsApp1
         public double r;
         public double rIndex;
         public double n;
-        public List<double> regressionExspressionAl;
-        public List<double> regressionExpressionCu;
+        public string regressionExspressionAl;
+        public string regressionExpressionCu;
         private List<double> _alCreated;
         private List<double> _alBought;
         private List<double> _cuCreated;
@@ -40,6 +40,7 @@ namespace WinFormsApp1
             this.elasticAl = this.calculateElastic(this._alCreated, this._alBought, a1Al);
             this.elasticCu = this.calculateElastic(this._cuCreated, this._cuBought, a1Cu);
             this.r = this.calculateR(this._alCreated, this._alBought);
+            this.regressionExspressionAl = $"{this.countA0} + {this.countA1}x";
         }
 
         private double a0(List<double> x, List<double> y) => (this._mathHelper.getSumValue(y) * this._mathHelper.getSumSquared(x) - this._mathHelper.getSumListsMultiplied(x, y) * this._mathHelper.getSumValue(x)) / (x.Count * this._mathHelper.getSumSquared(x) - Math.Pow(this._mathHelper.getSumValue(x), 2));
