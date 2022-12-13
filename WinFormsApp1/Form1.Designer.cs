@@ -85,7 +85,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(296, 581);
+            this.button1.Location = new System.Drawing.Point(330, 646);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(264, 44);
             this.button1.TabIndex = 0;
@@ -104,7 +104,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(91, 367);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(677, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(679, 212);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -211,7 +211,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(925, 685);
+            this.tabControl1.Size = new System.Drawing.Size(923, 755);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage1
@@ -240,7 +240,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(917, 657);
+            this.tabPage1.Size = new System.Drawing.Size(915, 727);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Прогнозирование";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -249,7 +249,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label23.Location = new System.Drawing.Point(30, 535);
+            this.label23.Location = new System.Drawing.Point(30, 600);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(428, 21);
             this.label23.TabIndex = 20;
@@ -506,7 +506,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 701);
+            this.ClientSize = new System.Drawing.Size(936, 772);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";

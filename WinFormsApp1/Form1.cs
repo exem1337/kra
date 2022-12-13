@@ -16,8 +16,14 @@ namespace WinFormsApp1
             try
             {
                 kra.setValues(
-                    readDataGrid(0), readDataGrid(1), readDataGrid(2), readDataGrid(3)
-                //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72 , 5 },
+
+                //new List<double>() { 100, 150, 130, 45, 75 },
+                //new List<double>() { 100, 142, 140, 80, 60 },
+                //new List<double>() { 100, 150, 130, 45, 75 },
+                //new List<double>() { 100, 142, 140, 80, 60 }
+
+                readDataGrid(0), readDataGrid(1), readDataGrid(2), readDataGrid(3)
+                //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
                 //new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 },
                 //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
                 //new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 }
@@ -30,7 +36,7 @@ namespace WinFormsApp1
                 label5.Text = $"sigmaY {kra.sigmaY}";
                 label6.Text = $"sigmaYX {kra.sigmaYX}";
                 label7.Text = $"Коэффициент детерминации R : {kra.bigR}";
-                label8.Text = $"Уравнение регрессии : {kra.regressionExpressionAl}";
+                label8.Text = $"Уравнение регрессии алюминиевых радиаторов : {kra.regressionExpressionAl}";
 
                 label13.Text = $"Эластичность {kra.elasticCu}";
                 label15.Text = $"Коэффициент корреляции r : {kra.rCu}";
@@ -39,7 +45,7 @@ namespace WinFormsApp1
                 label18.Text = $"sigmaY {kra.sigmaYCu}";
                 label16.Text = $"sigmaYX {kra.sigmaYXCu}";
                 label14.Text = $"Коэффициент детерминации R : {kra.bigRCu}";
-                label20.Text = $"Уравнение регрессии : {kra.regressionExpressionCu}";
+                label20.Text = $"Уравнение регрессии медных радиаторов : {kra.regressionExpressionCu}";
 
                 if (kra.bigR > kra.bigRCu) {
                     label23.Text = $"В следующем месяце требуется увеличить производство : алюминиевых радиаторов";
@@ -60,14 +66,19 @@ namespace WinFormsApp1
             {
                 //throw new Exception(exc.Message);
                 MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //dataGridView1.Rows.Clear();
+
             }
         }
+
+      
+
 
         private List<double> readDataGrid(int index)
         {
             List<double> data = new List<double>();
             
-            for (int rows = 0; rows < dataGridView1.Rows.Count; rows++)
+            for (int rows = 0; rows < dataGridView1.Rows.Count-1; rows++)
             {
                 try
                 {
@@ -76,8 +87,8 @@ namespace WinFormsApp1
                 //catch (Exception exc)
                 catch (Exception exc)
                 {
-                    //throw new Exception(exc.Message);
-                    MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new Exception(exc.Message);
+                    //MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
