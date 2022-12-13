@@ -40,6 +40,13 @@ namespace WinFormsApp1
                 label16.Text = $"sigmaYX {kra.sigmaYXCu}";
                 label14.Text = $"Коэффициент детерминации R : {kra.bigRCu}";
                 label20.Text = $"Уравнение регрессии : {kra.regressionExpressionCu}";
+
+                if (kra.bigR > kra.bigRCu) {
+                    label23.Text = $"В следующем месяце требуется увеличить производство : алюминиевых радиаторов";
+                }
+                else { label23.Text = $"В следующем месяце требуется увеличить производство : медных радиаторов "; }
+
+               
             }
             catch(Exception exc)
             {

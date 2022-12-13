@@ -44,6 +44,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -70,8 +72,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -84,7 +85,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(432, 367);
+            this.button1.Location = new System.Drawing.Point(444, 407);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(264, 44);
             this.button1.TabIndex = 0;
@@ -209,11 +210,12 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1240, 445);
+            this.tabControl1.Size = new System.Drawing.Size(1240, 495);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label23);
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.label21);
             this.tabPage1.Controls.Add(this.label20);
@@ -237,10 +239,30 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1232, 417);
+            this.tabPage1.Size = new System.Drawing.Size(1232, 467);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Прогнозирование";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label22.Location = new System.Drawing.Point(866, 20);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(188, 25);
+            this.label22.TabIndex = 19;
+            this.label22.Text = "Медные радиаторы";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label21.Location = new System.Drawing.Point(487, 20);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(258, 25);
+            this.label21.TabIndex = 18;
+            this.label21.Text = "Аллюминиевые радиаторы";
             // 
             // label20
             // 
@@ -469,31 +491,20 @@
             this.tabPage3.Text = "Справка";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label21
+            // label23
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label21.Location = new System.Drawing.Point(487, 20);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(258, 25);
-            this.label21.TabIndex = 18;
-            this.label21.Text = "Аллюминиевые радиаторы";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label22.Location = new System.Drawing.Point(866, 20);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(188, 25);
-            this.label22.TabIndex = 19;
-            this.label22.Text = "Медные радиаторы";
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(19, 373);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(329, 15);
+            this.label23.TabIndex = 20;
+            this.label23.Text = "В следующем месяце требуется увеличить производство :";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 469);
+            this.ClientSize = new System.Drawing.Size(1264, 519);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -557,5 +568,6 @@
         private Label label20;
         private Label label22;
         private Label label21;
+        private Label label23;
     }
 }
