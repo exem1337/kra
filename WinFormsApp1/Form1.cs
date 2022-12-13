@@ -39,7 +39,7 @@ namespace WinFormsApp1
                 label18.Text = $"sigmaY {kra.sigmaYCu}";
                 label16.Text = $"sigmaYX {kra.sigmaYXCu}";
                 label14.Text = $"Коэффициент детерминации R : {kra.bigRCu}";
-                label8.Text = $"Уравнение регрессии : {kra.regressionExpressionCu}";
+                label20.Text = $"Уравнение регрессии : {kra.regressionExpressionCu}";
             }
             catch(Exception exc)
             {
