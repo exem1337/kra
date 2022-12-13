@@ -44,13 +44,22 @@ namespace WinFormsApp1
                 if (kra.bigR > kra.bigRCu) {
                     label23.Text = $"В следующем месяце требуется увеличить производство : алюминиевых радиаторов";
                 }
-                else { label23.Text = $"В следующем месяце требуется увеличить производство : медных радиаторов "; }
+                else { label23.Text = $"В следующем месяце требуется увеличить производство : медных радиаторов ";
+                }
 
-               
+                if (kra.bigR == kra.bigRCu)
+                {
+                    label23.Text = $"Сбалансированное производство, требуется производство в равных количествах";
+                }
+                else { }
+           
+
+
             }
             catch(Exception exc)
             {
-                throw new Exception(exc.Message);
+                //throw new Exception(exc.Message);
+                MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -64,9 +73,11 @@ namespace WinFormsApp1
                 {
                     data.Add(Convert.ToDouble(dataGridView1.Rows[rows].Cells[index].Value));
                 }
+                //catch (Exception exc)
                 catch (Exception exc)
                 {
-                    throw new Exception(exc.Message);
+                    //throw new Exception(exc.Message);
+                    MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 

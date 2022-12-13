@@ -101,7 +101,7 @@
             this.t2,
             this.t3,
             this.t4});
-            this.dataGridView1.Location = new System.Drawing.Point(96, 403);
+            this.dataGridView1.Location = new System.Drawing.Point(91, 367);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(677, 150);
@@ -249,7 +249,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label23.Location = new System.Drawing.Point(30, 361);
+            this.label23.Location = new System.Drawing.Point(30, 535);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(428, 21);
             this.label23.TabIndex = 20;
