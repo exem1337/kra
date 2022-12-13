@@ -10,7 +10,7 @@ namespace WinFormsApp1
         public double rCu;
         public double rIndex;
         public double n;
-        public string regressionExspressionAl;
+        public string regressionExpressionAl;
         public string regressionExpressionCu;
         private List<double> _alCreated;
         private List<double> _alBought;
@@ -19,11 +19,14 @@ namespace WinFormsApp1
         private MathHelper _mathHelper = new MathHelper();
         public double countA0;
         public double countA1;
-        public double countA0cu;
-        public double countA1cu;
+        public double countA0Cu;
+        public double countA1Cu;
         public double sigmaY;
         public double sigmaYX;
+        public double sigmaYCu;
+        public double sigmaYXCu;
         public double bigR;
+        public double bigRCu;
 
         public void setValues(List<double> alCreated, List<double> alBought, List<double> cuCreated, List<double> cuBought) {
             this._alCreated = alCreated; this._alBought = alBought; this._cuCreated = cuCreated; this._cuBought = cuBought;
@@ -35,23 +38,24 @@ namespace WinFormsApp1
             double a1Al = this.a1(this._alCreated, this._alBought);
             double a0Cu = this.a0(this._cuCreated, this._cuBought);
             double a1Cu = this.a1(this._cuCreated, this._cuBought);
+
             this.countA0 = a0Al;
             this.countA1 = a1Al;
             this.sigmaY = this.calculateSigmaY(this._alBought);
             this.sigmaYX = this.calculateSigmaYX(this._alCreated, this._alBought);
             this.bigR = this.calculateRBig(this._alCreated, this._alBought);
             this.elasticAl = this.calculateElastic(this._alCreated, this._alBought, a1Al);
-            this.elasticCu = this.calculateElastic(this._cuCreated, this._cuBought, a1Cu);
             this.r = this.calculateR(this._alCreated, this._alBought);
-            this.regressionExspressionAl = $"{this.countA0} + {this.countA1}x";
+            this.regressionExpressionAl = $"{this.countA0} + {this.countA1}x";
 
-            this.countA0cu = a0Cu;
-            this.countA1cu = a1Cu;
-            this.sigmaY = this.calculateSigmaY(this._cuBought);
-            this.sigmaYX = this.calculateSigmaYX(this._cuCreated, this._cuBought);
-            this.bigR = this.calculateRBig(this._cuCreated, this._cuBought);
-            this.r = this.calculateR(this._cuCreated, this._cuBought);
-            this.regressionExspressionAl = $"{this.countA0cu} + {this.countA1cu}x";
+            this.countA0Cu = a0Cu;
+            this.countA1Cu = a1Cu;
+            this.sigmaYCu = this.calculateSigmaY(this._cuBought);
+            this.elasticCu = this.calculateElastic(this._cuCreated, this._cuBought, a1Cu);
+            this.sigmaYXCu = this.calculateSigmaYX(this._cuCreated, this._cuBought);
+            this.bigRCu = this.calculateRBig(this._cuCreated, this._cuBought);
+            this.rCu = this.calculateR(this._cuCreated, this._cuBought);
+            this.regressionExpressionCu = $"{this.countA0Cu} + {this.countA1Cu}x";
         }
 
         private double a0(List<double> x, List<double> y) => (this._mathHelper.getSumValue(y) * this._mathHelper.getSumSquared(x) - this._mathHelper.getSumListsMultiplied(x, y) * this._mathHelper.getSumValue(x)) / (x.Count * this._mathHelper.getSumSquared(x) - Math.Pow(this._mathHelper.getSumValue(x), 2));

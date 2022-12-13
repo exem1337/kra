@@ -30,16 +30,16 @@ namespace WinFormsApp1
                 label5.Text = $"sigmaY {kra.sigmaY}";
                 label6.Text = $"sigmaYX {kra.sigmaYX}";
                 label7.Text = $"Коэффициент детерминации R : {kra.bigR}";
-                label8.Text = $"Уравнение регрессии : {kra.regressionExspressionAl}";
+                label8.Text = $"Уравнение регрессии : {kra.regressionExpressionAl}";
 
                 label13.Text = $"Эластичность {kra.elasticCu}";
-                label15.Text = $"Коэффициент корреляции r : {kra.r}";
-                label17.Text = $"Параметр a0 : {kra.countA0}";
-                label19.Text = $"Параметр a1 : {kra.countA1}";
-                label18.Text = $"sigmaY {kra.sigmaY}";
-                label16.Text = $"sigmaYX {kra.sigmaYX}";
-                label14.Text = $"Коэффициент детерминации R : {kra.bigR}";
-                label8.Text = $"Уравнение регрессии : {kra.regressionExspressionAl}";
+                label15.Text = $"Коэффициент корреляции r : {kra.rCu}";
+                label17.Text = $"Параметр a0 : {kra.countA0Cu}";
+                label19.Text = $"Параметр a1 : {kra.countA1Cu}";
+                label18.Text = $"sigmaY {kra.sigmaYCu}";
+                label16.Text = $"sigmaYX {kra.sigmaYXCu}";
+                label14.Text = $"Коэффициент детерминации R : {kra.bigRCu}";
+                label8.Text = $"Уравнение регрессии : {kra.regressionExpressionCu}";
             }
             catch(Exception exc)
             {
