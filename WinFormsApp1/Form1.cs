@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp1
+﻿using System;
+
+namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
@@ -14,10 +16,11 @@
             try
             {
                 kra.setValues(
-                    new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72 , 5 },
-                    new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 },
-                    new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
-                    new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 }
+                    readDataGrid(0), readDataGrid(1), readDataGrid(2), readDataGrid(3)
+                //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72 , 5 },
+                //new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 },
+                //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
+                //new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 }
                 );
                 kra.startKra();
                 label1.Text = $"Эластичность {kra.elasticAl}";
@@ -27,6 +30,15 @@
                 label5.Text = $"sigmaY {kra.sigmaY}";
                 label6.Text = $"sigmaYX {kra.sigmaYX}";
                 label7.Text = $"Коэффициент детерминации R : {kra.bigR}";
+                label8.Text = $"Уравнение регрессии : {kra.regressionExspressionAl}";
+
+                label13.Text = $"Эластичность {kra.elasticCu}";
+                label15.Text = $"Коэффициент корреляции r : {kra.r}";
+                label17.Text = $"Параметр a0 : {kra.countA0}";
+                label19.Text = $"Параметр a1 : {kra.countA1}";
+                label18.Text = $"sigmaY {kra.sigmaY}";
+                label16.Text = $"sigmaYX {kra.sigmaYX}";
+                label14.Text = $"Коэффициент детерминации R : {kra.bigR}";
                 label8.Text = $"Уравнение регрессии : {kra.regressionExspressionAl}";
             }
             catch(Exception exc)
