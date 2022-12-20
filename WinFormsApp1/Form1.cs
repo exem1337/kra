@@ -17,12 +17,12 @@ namespace WinFormsApp1
             {
                 kra.setValues(
 
-                //new List<double>() { 100, 150, 130, 45, 75 },
-                //new List<double>() { 100, 142, 140, 80, 60 },
-                //new List<double>() { 100, 150, 130, 45, 75 },
-                //new List<double>() { 100, 142, 140, 80, 60 }
+                new List<double>() { 100, 150, 130, 45, 75 },
+                new List<double>() { 100, 142, 140, 80, 60 },
+                new List<double>() { 100, 150, 130, 45, 75 },
+                new List<double>() { 100, 142, 140, 80, 60 }
 
-                readDataGrid(0), readDataGrid(1), readDataGrid(2), readDataGrid(3)
+                //readDataGrid(0), readDataGrid(1), readDataGrid(2), readDataGrid(3)
                 //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
                 //new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 },
                 //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
@@ -134,6 +134,82 @@ namespace WinFormsApp1
             label12.Text = maxi;
             label12.Visible = true;
             label11.Visible = true;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonRadiatorTypeAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAddTechShow_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks db = new DatabaseWorks();
+            db.AddTechPref(textBoxTechShowName.Text,textBoxTechShowShName.Text);
+        }
+
+        private void buttonOtdelAdd_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks db = new DatabaseWorks();
+            db.AddOtdel(textBoxOtdelName.Text, textBoxOtdelShName.Text);
+        }
+
+        private void buttonRadiatorTypeAdd_Click_1(object sender, EventArgs e)
+        {
+            DatabaseWorks db = new DatabaseWorks();
+            dataGridViewTemp.DataSource = db.GetKey("Единицы_измерения", "код_единицы_измерения", "название", $"'{comboBoxRadiatorMetrics.Text}'");
+            db.AddRadiator(textBoxRadiatorTypeName.Text, textBoxRTypeShortName.Text, textBoxRTypeDescription.Text, Convert.ToInt32(dataGridViewTemp.Rows[0].Cells[0].Value));
+
+        }
+
+        private void buttonAddMetric_Click(object sender, EventArgs e)
+        {
+            DatabaseWorks db = new DatabaseWorks();
+            db.AddMetric(textBoxMetricName.Text, textBoxMetricShName.Text);
+        }
+
+        void FillTechPrefSelect()
+        {
+            DatabaseWorks db = new DatabaseWorks();
+            dataGridViewTechPrefSelect.DataSource = db.ReturnTable("код_технического_показателя, наименование", "Технический_показатель", "");
+        }
+
+        void FillTechMetricSelect()
+        {
+            DatabaseWorks db = new DatabaseWorks();
+            dataGridViewTemp.DataSource = db.ReturnTable("название", "Единицы_измерения", "");
+            comboBoxRadiatorMetrics.Items.Clear();
+            for(int i = 0; i < dataGridViewTemp.Rows.Count - 1; i++)
+            {
+                comboBoxRadiatorMetrics.Items.Add(dataGridViewTemp.Rows[i].Cells[0].Value.ToString());
+            }
+        }
+
+        void FillProductionTypeGrid()
+        {
+            DatabaseWorks db = new DatabaseWorks();
+            dataGridViewProdType.DataSource = db.ReturnTable("наименование_вида, краткое_название_вида, описание, Единицы_измерения.название AS Единица_измерения", "Вид_выпускаемой_продукции, Единицы_измерения", "WHERE Вид_выпускаемой_продукции.код_единицы_измерения = Единицы_измерения.код_единицы_измерения");
+        }
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(tabControl2.SelectedIndex)
+            {
+                case 3:
+                    FillTechMetricSelect();
+                    FillTechPrefSelect();
+                    FillProductionTypeGrid();
+                    break;
+            }
+        }
+
+        private void textBoxRTypeShortName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

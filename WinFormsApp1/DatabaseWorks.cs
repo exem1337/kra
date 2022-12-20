@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Xml.Linq;
+using System.Data;
+
+namespace WinFormsApp1
+{
+    internal class DatabaseWorks
+    {
+
+        SqlConnection connection;
+
+        public DatabaseWorks()
+        {
+            connection = new SqlConnection(LocalStorage.Credentials);
+            connection.Open();
+        }
+
+        public DataView GetKey(string Table, string KeyColumn, string FindByColumn, string Key)
+        {
+            SqlDataAdapter sqlData = new SqlDataAdapter($"SELECT {KeyColumn} FROM {Table} WHERE {FindByColumn} = {Key};", connection);
+            DataSet dataSet = new DataSet();
+            sqlData.Fill(dataSet);
+            return dataSet.Tables[0].DefaultView;
+        }
+
+        public DataView ReturnTable(string Columns, string TablesName, string Arguments)
+        {
+            SqlDataAdapter sqlData = new SqlDataAdapter($"SELECT {Columns} FROM {TablesName} {Arguments};", connection);
+            DataSet dataSet = new DataSet();
+            sqlData.Fill(dataSet);
+            return dataSet.Tables[0].DefaultView;
+        }
+
+        // Справочники
+
+        public void AddTechPref(string Name, string ShName)
+        {
+            SqlCommand sql = new SqlCommand($"INSERT INTO Технический_показатель (наименование, краткое_название) VALUES ('{Name}', '{ShName}');", connection);
+            sql.ExecuteNonQuery();
+        }
+
+        public void AddOtdel(string Name, string ShName)
+        {
+            SqlCommand sql = new SqlCommand($"INSERT INTO Отдел (название, краткое_название) VALUES ('{Name}', '{ShName}');", connection);
+            sql.ExecuteNonQuery();
+        }
+
+        public void AddMetric(string Name, string ShName)
+        {
+            SqlCommand sql = new SqlCommand($"INSERT INTO Единицы_измерения (название, краткое_название) VALUES ('{Name}', '{ShName}');", connection);
+            sql.ExecuteNonQuery();
+        }
+
+        public void AddRadiator(string Name, string ShName, string Description, int MetricKey)
+        {
+            SqlCommand sql = new SqlCommand($"INSERT INTO Вид_выпускаемой_продукции (наименование_вида, краткое_название_вида, описание, код_единицы_измерения) VALUES ('{Name}', '{ShName}', '{Description}', {MetricKey});", connection);
+            sql.ExecuteNonQuery();
+        }
+
+    }
+}
