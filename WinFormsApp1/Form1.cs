@@ -7,9 +7,31 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            this.toggleLabels(false);
         }
 
         protected KRA kra = new KRA();
+
+        private void toggleLabels(bool value)
+        {
+            label2.Visible = value;
+            label3.Visible = value;
+            label4.Visible = value;
+            label5.Visible = value;
+            label6.Visible = value;
+            label7.Visible = value;
+            label8.Visible = value;
+            label13.Visible = value;
+            label21.Visible = value;
+            label20.Visible = value;
+            label19.Visible = value;
+            label18.Visible = value;
+            label8.Visible = value;
+            label9.Visible = value;
+            label17.Visible = value;
+            label16.Visible = value;
+            label14.Visible = value;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -33,16 +55,19 @@ namespace WinFormsApp1
                 if (Double.IsNaN(kra.elasticAl))
                 {
                     MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
+
+                this.toggleLabels(true);
 
                 label2.Text = $"Эластичность {kra.elasticAl}";
                 label3.Text = $"Эластичность {kra.elasticCu}";
 
-                label4.Text = $"Уравнение регрессии {kra.regressionExpressionAl}";
-                label5.Text = $"Уравнение регрессии {kra.regressionExpressionCu}";
+                label4.Text = $"Уравнение регрессии Алюминий {kra.regressionExpressionAl}";
+                label5.Text = $"Уравнение регрессии Медь {kra.regressionExpressionCu}";
                 
-                label6.Text = $"Коэффициент кореляции {kra.r}";
-                label7.Text = $"Коэффициент кореляции {kra.rCu}";
+                label6.Text = $"Коэффициент кореляции r: {kra.r}";
+                label7.Text = $"Коэффициент кореляции r: {kra.rCu}";
                 
                 label8.Text = $"Параметр а0 {kra.countA0}";
                 label13.Text = $"Параметр а0 {kra.countA0Cu}";
@@ -162,6 +187,11 @@ namespace WinFormsApp1
             label12.Text = maxi;
             label12.Visible = true;
             label11.Visible = true;
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

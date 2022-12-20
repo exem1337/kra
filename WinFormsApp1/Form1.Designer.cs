@@ -34,7 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -74,7 +76,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label14 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -98,6 +99,7 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
@@ -107,6 +109,16 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(923, 755);
             this.tabControl1.TabIndex = 10;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 24);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(915, 727);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Авторизация";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -136,6 +148,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Прогнозирование";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(53, 602);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(44, 15);
+            this.label14.TabIndex = 18;
+            this.label14.Text = "label14";
             // 
             // label16
             // 
@@ -266,10 +288,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(16, 15);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(217, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(474, 21);
+            this.label1.Size = new System.Drawing.Size(519, 21);
             this.label1.TabIndex = 3;
             this.label1.Text = "Объём выпускаемой продукции ООО \"Оренбургский радиатор\"";
             // 
@@ -491,15 +513,6 @@
             this.tabPage3.Text = "Справка";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(53, 602);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(44, 15);
-            this.label14.TabIndex = 18;
-            this.label14.Text = "label14";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -568,5 +581,6 @@
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn Column8;
         private Label label14;
+        private TabPage tabPage5;
     }
 }
