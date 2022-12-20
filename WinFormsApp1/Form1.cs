@@ -7,6 +7,7 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            FillRadiatorTypeSelect();
         }
 
         protected KRA kra = new KRA();
@@ -163,12 +164,13 @@ namespace WinFormsApp1
             DatabaseWorks db = new DatabaseWorks();
             dataGridViewTemp.DataSource = db.GetKey("Единицы_измерения", "код_единицы_измерения", "название", $"'{comboBoxRadiatorMetrics.Text}'");
             db.AddRadiator(textBoxRadiatorTypeName.Text, textBoxRTypeShortName.Text, textBoxRTypeDescription.Text, Convert.ToInt32(dataGridViewTemp.Rows[0].Cells[0].Value));
-            dataGridViewTemp.DataSource = db.ReturnTable("код_вида", "Вид_выпускаемой_продукции", "");
+            dataGridViewTemp.DataSource = db.FetchData("код_вида", "Вид_выпускаемой_продукции", "");
             int RadTypeKey = Convert.ToInt32(dataGridViewTemp.Rows[dataGridViewTemp.Rows.Count - 2].Cells[0].Value);
             foreach (DataGridViewRow row in dataGridViewTechPrefSelect.SelectedRows)
             {
                 db.ConnectRadTypeTechPref(RadTypeKey, Convert.ToInt32(row.Cells[0].Value));
             }
+            FillProductionTypeGrid();
         }
 
         private void buttonAddMetric_Click(object sender, EventArgs e)
@@ -180,13 +182,13 @@ namespace WinFormsApp1
         void FillTechPrefSelect()
         {
             DatabaseWorks db = new DatabaseWorks();
-            dataGridViewTechPrefSelect.DataSource = db.ReturnTable("код_технического_показателя, наименование", "Технический_показатель", "");
+            dataGridViewTechPrefSelect.DataSource = db.FetchData("код_технического_показателя, наименование", "Технический_показатель", "");
         }
 
         void FillTechMetricSelect()
         {
             DatabaseWorks db = new DatabaseWorks();
-            dataGridViewTemp.DataSource = db.ReturnTable("название", "Единицы_измерения", "");
+            dataGridViewTemp.DataSource = db.FetchData("название", "Единицы_измерения", "");
             comboBoxRadiatorMetrics.Items.Clear();
             for(int i = 0; i < dataGridViewTemp.Rows.Count - 1; i++)
             {
@@ -197,13 +199,33 @@ namespace WinFormsApp1
         void FillProductionTypeGrid()
         {
             DatabaseWorks db = new DatabaseWorks();
-            dataGridViewProdType.DataSource = db.ReturnTable("наименование_вида, краткое_название_вида, описание, Единицы_измерения.название AS Единица_измерения", "Вид_выпускаемой_продукции, Единицы_измерения", "WHERE Вид_выпускаемой_продукции.код_единицы_измерения = Единицы_измерения.код_единицы_измерения");
+            dataGridViewProdType.DataSource = db.FetchData("наименование_вида, краткое_название_вида, описание, Единицы_измерения.название AS Единица_измерения", "Вид_выпускаемой_продукции, Единицы_измерения", "WHERE Вид_выпускаемой_продукции.код_единицы_измерения = Единицы_измерения.код_единицы_измерения");
+        }
+
+        void FillProductionGrid()
+        {
+            DatabaseWorks db = new DatabaseWorks();
+
+        }
+
+        void FillRadiatorTypeSelect()
+        {
+            DatabaseWorks db = new DatabaseWorks();
+            dataGridViewTemp.DataSource = db.FetchData("наименование_вида", "Вид_выпускаемой_продукции", "");
+            comboBoxRadiatorType.Items.Clear();
+            for(int i = 0; i < dataGridViewTemp.Rows.Count - 1; i++)
+            {
+                comboBoxRadiatorType.Items.Add(dataGridViewTemp.Rows[i].Cells[0].Value.ToString());
+            }
         }
 
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch(tabControl2.SelectedIndex)
             {
+                case 0:
+                    FillRadiatorTypeSelect();
+                    break;
                 case 3:
                     FillTechMetricSelect();
                     FillTechPrefSelect();
@@ -215,6 +237,84 @@ namespace WinFormsApp1
         private void textBoxRTypeShortName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBoxTechProkladka_TextChanged(object sender, EventArgs e)
+        {
+            double dummy;
+            if(!double.TryParse(textBoxTechProkladka.Text, out dummy))
+            {
+                if(textBoxTechProkladka.Text != String.Empty)
+                {
+                    MessageBox.Show("Проверьте правильность введенной информации. Недопустимый символ");
+                }
+                textBoxTechProkladka.Text = String.Empty;
+            }
+        }
+
+        private void textBoxTechVibrator_TextChanged(object sender, EventArgs e)
+        {
+            double dummy;
+            if (!double.TryParse(textBoxTechVibrator.Text, out dummy))
+            {
+                if (textBoxTechVibrator.Text != String.Empty)
+                {
+                    MessageBox.Show("Проверьте правильность введенной информации. Недопустимый символ, только цифры");
+                }
+                textBoxTechVibrator.Text = String.Empty;
+            }
+        }
+
+        private void textBoxTechTemp_TextChanged(object sender, EventArgs e)
+        {
+            double dummy;
+            if (!double.TryParse(textBoxTechTemp.Text, out dummy))
+            {
+                if (textBoxTechTemp.Text != String.Empty)
+                {
+                    MessageBox.Show("Проверьте правильность введенной информации. Недопустимый символ, только цифры");
+                }
+                textBoxTechTemp.Text = String.Empty;
+            }
+        }
+
+        private void textBoxTechYears_TextChanged(object sender, EventArgs e)
+        {
+            double dummy;
+            if (!double.TryParse(textBoxTechYears.Text, out dummy))
+            {
+                if (textBoxTechYears.Text != String.Empty)
+                {
+                    MessageBox.Show("Проверьте правильность введенной информации. Недопустимый символ, только цифры");
+                }
+                textBoxTechYears.Text = String.Empty;
+            }
+        }
+
+        private void textBoxWorkDays_TextChanged(object sender, EventArgs e)
+        {
+            double dummy;
+            if (!double.TryParse(textBoxWorkDays.Text, out dummy))
+            {
+                if (textBoxWorkDays.Text != String.Empty)
+                {
+                    MessageBox.Show("Проверьте правильность введенной информации. Недопустимый символ, только цифры");
+                }
+                textBoxWorkDays.Text = String.Empty;
+            }
+        }
+
+        private void textBoxDemandedCapacity_TextChanged(object sender, EventArgs e)
+        {
+            double dummy;
+            if (!double.TryParse(textBoxDemandedCapacity.Text, out dummy))
+            {
+                if (textBoxDemandedCapacity.Text != String.Empty)
+                {
+                    MessageBox.Show("Проверьте правильность введенной информации. Недопустимый символ, только цифры");
+                }
+                textBoxDemandedCapacity.Text = String.Empty;
+            }
         }
     }
 }

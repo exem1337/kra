@@ -28,7 +28,7 @@ namespace WinFormsApp1
             return dataSet.Tables[0].DefaultView;
         }
 
-        public DataView ReturnTable(string Columns, string TablesName, string Arguments)
+        public DataView FetchData(string Columns, string TablesName, string Arguments)
         {
             SqlDataAdapter sqlData = new SqlDataAdapter($"SELECT {Columns} FROM {TablesName} {Arguments};", connection);
             DataSet dataSet = new DataSet();
