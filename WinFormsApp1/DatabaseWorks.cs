@@ -62,5 +62,16 @@ namespace WinFormsApp1
             sql.ExecuteNonQuery();
         }
 
+        public void AddPredpriyatie()
+        {
+
+        }
+
+        public void ConnectRadTypeTechPref(int RadTypeKey, int TechPrefKey)
+        {
+            SqlCommand sql = new SqlCommand($"INSERT INTO Вид_продукции_технический_показатель (код_вида, код_показателя) VALUES ({RadTypeKey}, {TechPrefKey});", connection);
+            sql.ExecuteNonQuery();
+        }
+
     }
 }

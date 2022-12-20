@@ -163,7 +163,12 @@ namespace WinFormsApp1
             DatabaseWorks db = new DatabaseWorks();
             dataGridViewTemp.DataSource = db.GetKey("Единицы_измерения", "код_единицы_измерения", "название", $"'{comboBoxRadiatorMetrics.Text}'");
             db.AddRadiator(textBoxRadiatorTypeName.Text, textBoxRTypeShortName.Text, textBoxRTypeDescription.Text, Convert.ToInt32(dataGridViewTemp.Rows[0].Cells[0].Value));
-
+            dataGridViewTemp.DataSource = db.ReturnTable("код_вида", "Вид_выпускаемой_продукции", "");
+            int RadTypeKey = Convert.ToInt32(dataGridViewTemp.Rows[dataGridViewTemp.Rows.Count - 2].Cells[0].Value);
+            foreach (DataGridViewRow row in dataGridViewTechPrefSelect.SelectedRows)
+            {
+                db.ConnectRadTypeTechPref(RadTypeKey, Convert.ToInt32(row.Cells[0].Value));
+            }
         }
 
         private void buttonAddMetric_Click(object sender, EventArgs e)

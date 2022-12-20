@@ -80,14 +80,6 @@
             this.buttonTechPrefAdd = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label25 = new System.Windows.Forms.Label();
@@ -109,12 +101,10 @@
             this.label36 = new System.Windows.Forms.Label();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.dataGridViewProdType = new System.Windows.Forms.DataGridView();
-            this.label50 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.dataGridViewTechPrefSelect = new System.Windows.Forms.DataGridView();
             this.comboBoxRadiatorMetrics = new System.Windows.Forms.ComboBox();
             this.textBoxRTypeDescription = new System.Windows.Forms.TextBox();
             this.textBoxRTypeShortName = new System.Windows.Forms.TextBox();
@@ -143,6 +133,16 @@
             this.textBoxTechShowName = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewTemp = new System.Windows.Forms.DataGridView();
+            this.label50 = new System.Windows.Forms.Label();
+            this.dataGridViewTechPrefSelect = new System.Windows.Forms.DataGridView();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -161,9 +161,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTechPrefSelect)).BeginInit();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTemp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTechPrefSelect)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -603,19 +603,13 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label50);
+            this.tabPage6.Controls.Add(this.dataGridViewTechPrefSelect);
             this.tabPage6.Controls.Add(this.button5);
             this.tabPage6.Controls.Add(this.label32);
             this.tabPage6.Controls.Add(this.buttonTechPrefAdd);
             this.tabPage6.Controls.Add(this.comboBox1);
             this.tabPage6.Controls.Add(this.label31);
-            this.tabPage6.Controls.Add(this.textBox5);
-            this.tabPage6.Controls.Add(this.label30);
-            this.tabPage6.Controls.Add(this.textBox4);
-            this.tabPage6.Controls.Add(this.label29);
-            this.tabPage6.Controls.Add(this.textBox3);
-            this.tabPage6.Controls.Add(this.label28);
-            this.tabPage6.Controls.Add(this.textBox2);
-            this.tabPage6.Controls.Add(this.label27);
             this.tabPage6.Controls.Add(this.label26);
             this.tabPage6.Controls.Add(this.dataGridView3);
             this.tabPage6.Controls.Add(this.label25);
@@ -629,7 +623,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(161, 388);
+            this.button5.Location = new System.Drawing.Point(168, 620);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 41);
             this.button5.TabIndex = 19;
@@ -646,7 +640,7 @@
             // 
             // buttonTechPrefAdd
             // 
-            this.buttonTechPrefAdd.Location = new System.Drawing.Point(20, 388);
+            this.buttonTechPrefAdd.Location = new System.Drawing.Point(9, 620);
             this.buttonTechPrefAdd.Name = "buttonTechPrefAdd";
             this.buttonTechPrefAdd.Size = new System.Drawing.Size(100, 41);
             this.buttonTechPrefAdd.TabIndex = 17;
@@ -670,70 +664,6 @@
             this.label31.Size = new System.Drawing.Size(87, 15);
             this.label31.TabIndex = 14;
             this.label31.Text = "Вид радиатора";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(9, 324);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(259, 23);
-            this.textBox5.TabIndex = 13;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(9, 297);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(127, 15);
-            this.label30.TabIndex = 12;
-            this.label30.Text = "Срок службы (Года) : ";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(9, 251);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(259, 23);
-            this.textBox4.TabIndex = 11;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(9, 224);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(266, 15);
-            this.label29.TabIndex = 10;
-            this.label29.Text = "Минимальная температура работы (Градусы) :";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(9, 188);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(259, 23);
-            this.textBox3.TabIndex = 9;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(9, 161);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(187, 15);
-            this.label28.TabIndex = 8;
-            this.label28.Text = "Устойчивость к вибрациям (Гц) :";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(9, 119);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(259, 23);
-            this.textBox2.TabIndex = 7;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(9, 101);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(153, 15);
-            this.label27.TabIndex = 6;
-            this.label27.Text = "Стойкость прокладок (%) :";
             // 
             // label26
             // 
@@ -917,12 +847,10 @@
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.dataGridViewProdType);
-            this.tabPage9.Controls.Add(this.label50);
             this.tabPage9.Controls.Add(this.label49);
             this.tabPage9.Controls.Add(this.label48);
             this.tabPage9.Controls.Add(this.label47);
             this.tabPage9.Controls.Add(this.label46);
-            this.tabPage9.Controls.Add(this.dataGridViewTechPrefSelect);
             this.tabPage9.Controls.Add(this.comboBoxRadiatorMetrics);
             this.tabPage9.Controls.Add(this.textBoxRTypeDescription);
             this.tabPage9.Controls.Add(this.textBoxRTypeShortName);
@@ -946,15 +874,6 @@
             this.dataGridViewProdType.RowTemplate.Height = 25;
             this.dataGridViewProdType.Size = new System.Drawing.Size(642, 515);
             this.dataGridViewProdType.TabIndex = 30;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(7, 204);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(142, 15);
-            this.label50.TabIndex = 29;
-            this.label50.Text = "Технические показатели";
             // 
             // label49
             // 
@@ -992,15 +911,6 @@
             this.label46.TabIndex = 25;
             this.label46.Text = "Название";
             // 
-            // dataGridViewTechPrefSelect
-            // 
-            this.dataGridViewTechPrefSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTechPrefSelect.Location = new System.Drawing.Point(6, 222);
-            this.dataGridViewTechPrefSelect.Name = "dataGridViewTechPrefSelect";
-            this.dataGridViewTechPrefSelect.RowTemplate.Height = 25;
-            this.dataGridViewTechPrefSelect.Size = new System.Drawing.Size(240, 253);
-            this.dataGridViewTechPrefSelect.TabIndex = 24;
-            // 
             // comboBoxRadiatorMetrics
             // 
             this.comboBoxRadiatorMetrics.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1027,7 +937,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(112, 481);
+            this.button4.Location = new System.Drawing.Point(147, 481);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 41);
             this.button4.TabIndex = 20;
@@ -1062,6 +972,14 @@
             // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this.textBox5);
+            this.tabPage10.Controls.Add(this.label30);
+            this.tabPage10.Controls.Add(this.textBox4);
+            this.tabPage10.Controls.Add(this.label29);
+            this.tabPage10.Controls.Add(this.textBox3);
+            this.tabPage10.Controls.Add(this.label28);
+            this.tabPage10.Controls.Add(this.textBox2);
+            this.tabPage10.Controls.Add(this.label27);
             this.tabPage10.Controls.Add(this.label43);
             this.tabPage10.Controls.Add(this.label44);
             this.tabPage10.Controls.Add(this.label45);
@@ -1142,7 +1060,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(6, 181);
+            this.label40.Location = new System.Drawing.Point(287, 178);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(40, 15);
             this.label40.TabIndex = 33;
@@ -1151,7 +1069,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(6, 254);
+            this.label41.Location = new System.Drawing.Point(287, 251);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(104, 15);
             this.label41.TabIndex = 32;
@@ -1160,7 +1078,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(6, 210);
+            this.label42.Location = new System.Drawing.Point(287, 207);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(59, 15);
             this.label42.TabIndex = 31;
@@ -1168,7 +1086,7 @@
             // 
             // buttonOtdelAdd
             // 
-            this.buttonOtdelAdd.Location = new System.Drawing.Point(6, 301);
+            this.buttonOtdelAdd.Location = new System.Drawing.Point(287, 298);
             this.buttonOtdelAdd.Name = "buttonOtdelAdd";
             this.buttonOtdelAdd.Size = new System.Drawing.Size(100, 41);
             this.buttonOtdelAdd.TabIndex = 30;
@@ -1178,14 +1096,14 @@
             // 
             // textBoxOtdelShName
             // 
-            this.textBoxOtdelShName.Location = new System.Drawing.Point(6, 272);
+            this.textBoxOtdelShName.Location = new System.Drawing.Point(287, 269);
             this.textBoxOtdelShName.Name = "textBoxOtdelShName";
             this.textBoxOtdelShName.Size = new System.Drawing.Size(241, 23);
             this.textBoxOtdelShName.TabIndex = 29;
             // 
             // textBoxOtdelName
             // 
-            this.textBoxOtdelName.Location = new System.Drawing.Point(6, 228);
+            this.textBoxOtdelName.Location = new System.Drawing.Point(287, 225);
             this.textBoxOtdelName.Name = "textBoxOtdelName";
             this.textBoxOtdelName.Size = new System.Drawing.Size(241, 23);
             this.textBoxOtdelName.TabIndex = 28;
@@ -1219,7 +1137,7 @@
             // 
             // buttonAddTechShow
             // 
-            this.buttonAddTechShow.Location = new System.Drawing.Point(6, 123);
+            this.buttonAddTechShow.Location = new System.Drawing.Point(6, 302);
             this.buttonAddTechShow.Name = "buttonAddTechShow";
             this.buttonAddTechShow.Size = new System.Drawing.Size(100, 41);
             this.buttonAddTechShow.TabIndex = 24;
@@ -1259,6 +1177,88 @@
             this.dataGridViewTemp.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewTemp.TabIndex = 25;
             // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(9, 350);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(142, 15);
+            this.label50.TabIndex = 31;
+            this.label50.Text = "Технические показатели";
+            // 
+            // dataGridViewTechPrefSelect
+            // 
+            this.dataGridViewTechPrefSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTechPrefSelect.Location = new System.Drawing.Point(9, 368);
+            this.dataGridViewTechPrefSelect.Name = "dataGridViewTechPrefSelect";
+            this.dataGridViewTechPrefSelect.RowTemplate.Height = 25;
+            this.dataGridViewTechPrefSelect.Size = new System.Drawing.Size(259, 246);
+            this.dataGridViewTechPrefSelect.TabIndex = 30;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(6, 273);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(259, 23);
+            this.textBox5.TabIndex = 47;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(6, 255);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(127, 15);
+            this.label30.TabIndex = 46;
+            this.label30.Text = "Срок службы (Года) : ";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(6, 229);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(259, 23);
+            this.textBox4.TabIndex = 45;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(6, 211);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(266, 15);
+            this.label29.TabIndex = 44;
+            this.label29.Text = "Минимальная температура работы (Градусы) :";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(6, 185);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(259, 23);
+            this.textBox3.TabIndex = 43;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(6, 167);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(187, 15);
+            this.label28.TabIndex = 42;
+            this.label28.Text = "Устойчивость к вибрациям (Гц) :";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(6, 141);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(259, 23);
+            this.textBox2.TabIndex = 41;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(6, 123);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(153, 15);
+            this.label27.TabIndex = 40;
+            this.label27.Text = "Стойкость прокладок (%) :";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1292,10 +1292,10 @@
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTechPrefSelect)).EndInit();
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTemp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTechPrefSelect)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1350,10 +1350,6 @@
         private TabPage tabPage5;
         private TabControl tabControl2;
         private TabPage tabPage6;
-        private TextBox textBox3;
-        private Label label28;
-        private TextBox textBox2;
-        private Label label27;
         private Label label26;
         private DataGridView dataGridView3;
         private Label label25;
@@ -1363,10 +1359,6 @@
         private Button buttonTechPrefAdd;
         private ComboBox comboBox1;
         private Label label31;
-        private TextBox textBox5;
-        private Label label30;
-        private TextBox textBox4;
-        private Label label29;
         private DataGridView dataGridView4;
         private ComboBox comboBox2;
         private Label label34;
@@ -1383,7 +1375,6 @@
         private Button button10;
         private Label label36;
         private TabPage tabPage9;
-        private DataGridView dataGridViewTechPrefSelect;
         private ComboBox comboBoxRadiatorMetrics;
         private TextBox textBoxRTypeDescription;
         private TextBox textBoxRTypeShortName;
@@ -1411,11 +1402,20 @@
         private TextBox textBoxMetricShName;
         private TextBox textBoxMetricName;
         private DataGridView dataGridViewTemp;
-        private Label label50;
         private Label label49;
         private Label label48;
         private Label label47;
         private Label label46;
         private DataGridView dataGridViewProdType;
+        private Label label50;
+        private DataGridView dataGridViewTechPrefSelect;
+        private TextBox textBox5;
+        private Label label30;
+        private TextBox textBox4;
+        private Label label29;
+        private TextBox textBox3;
+        private Label label28;
+        private TextBox textBox2;
+        private Label label27;
     }
 }
