@@ -286,6 +286,9 @@ namespace WinFormsApp1
                     FillTechPrefSelect();
                     FillProductionTypeGrid();
                     break;
+                case 5:
+                    FillOtdelSelect();
+                    break;
             }
         }
 
@@ -372,9 +375,23 @@ namespace WinFormsApp1
             }
         }
 
+        void FillOtdelSelect()
+        {
+            DatabaseWorks db = new DatabaseWorks();
+            comboBoxOtdelSelect.Items.Clear();
+            dataGridViewTemp.DataSource = db.FetchData("название", "Отдел", "");
+            for(int i = 0; i < dataGridViewTemp.Rows.Count - 1; i++)
+            {
+                comboBoxOtdelSelect.Items.Add(dataGridViewTemp.Rows[i].Cells[0].Value.ToString());
+            }
+        }
+
         private void buttonPredprAdd_Click(object sender, EventArgs e)
         {
-
+            DatabaseWorks db = new DatabaseWorks();
+            dataGridViewTemp.DataSource = db.GetKey("Отдел", "код_отдела", "название", $"'{comboBoxOtdelSelect.Text}'");
+            int OtdelKey = Convert.ToInt32(dataGridViewTemp.Rows[0].Cells[0].Value);
+            db.AddPredpriyatie(textBoxPredprName.Text, OtdelKey);
         }
     }
 }
