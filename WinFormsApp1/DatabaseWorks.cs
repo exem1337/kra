@@ -56,7 +56,7 @@ namespace WinFormsApp1
             sql.ExecuteNonQuery();
         }
 
-        public void AddRadiator(string Name, string ShName, string Description, int MetricKey)
+        public void AddRadiatorType(string Name, string ShName, string Description, int MetricKey)
         {
             SqlCommand sql = new SqlCommand($"INSERT INTO Вид_выпускаемой_продукции (наименование_вида, краткое_название_вида, описание, код_единицы_измерения) VALUES ('{Name}', '{ShName}', '{Description}', {MetricKey});", connection);
             sql.ExecuteNonQuery();
@@ -70,6 +70,12 @@ namespace WinFormsApp1
         public void ConnectRadTypeTechPref(int RadTypeKey, int TechPrefKey)
         {
             SqlCommand sql = new SqlCommand($"INSERT INTO Вид_продукции_технический_показатель (код_вида, код_показателя) VALUES ({RadTypeKey}, {TechPrefKey});", connection);
+            sql.ExecuteNonQuery();
+        }
+
+        public void AddRadiator(string Name, string ShName, string Description, int RadKey, double Stoikost, double Vibrator, double MinTemp, double Srok)
+        {
+            SqlCommand sql = new SqlCommand($"INSERT INTO Выпускаемая_продукция (наименование_выпускаемой_продукции, краткое_название, описание, стойкость_прокладок, устойчивость_к_вибр, мин_температура, срок_службы, код_вида) VALUES ('{Name}', '{ShName}', '{Description}', {Stoikost}, {Vibrator}, {MinTemp}, {Srok}, {RadKey});", connection);
             sql.ExecuteNonQuery();
         }
 

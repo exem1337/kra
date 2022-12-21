@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp1
+﻿using System.Diagnostics;
+
+namespace WinFormsApp1
 {
     public class MathHelper
     {

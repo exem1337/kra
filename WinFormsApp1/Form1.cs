@@ -8,7 +8,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             FillRadiatorTypeSelect();
-            this.toggleLabels(false);
+            FillProductionGrid();
         }
 
         protected KRA kra = new KRA();
@@ -40,10 +40,10 @@ namespace WinFormsApp1
             {
                 kra.setValues(
 
-                new List<double>() { 100, 150, 130, 45, 75 },
-                new List<double>() { 100, 142, 140, 80, 60 },
-                new List<double>() { 100, 150, 130, 45, 75 },
-                new List<double>() { 100, 142, 140, 80, 60 }
+                //new List<double>() { 100, 150, 130, 45, 75 },
+                //new List<double>() { 100, 142, 140, 80, 60 },
+                //new List<double>() { 100, 150, 130, 45, 75 },
+                //new List<double>() { 100, 142, 140, 80, 60 }
 
                 readDataGrid1(0), readDataGrid1(1), readDataGrid2(0), readDataGrid2(1)
                 //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
@@ -66,10 +66,10 @@ namespace WinFormsApp1
 
                 label4.Text = $"Уравнение регрессии Алюминий {kra.regressionExpressionAl}";
                 label5.Text = $"Уравнение регрессии Медь {kra.regressionExpressionCu}";
-                
+
                 label6.Text = $"Коэффициент кореляции r: {kra.r}";
                 label7.Text = $"Коэффициент кореляции r: {kra.rCu}";
-                
+
                 label8.Text = $"Параметр а0 {kra.countA0}";
                 label13.Text = $"Параметр а0 {kra.countA0Cu}";
 
@@ -98,20 +98,17 @@ namespace WinFormsApp1
                     label14.Text = "Итог прогнозирования: увеличить производство медных радиаторов на следующий период";
                 }
             }
-            catch(Exception)    
+            catch (Exception)
             {
                 MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-      
-
-
         private List<double> readDataGrid1(int index)
         {
             List<double> data = new List<double>();
-            
-            for (int rows = 0; rows < dataGridView1.Rows.Count-1; rows++)
+
+            for (int rows = 0; rows < dataGridView1.Rows.Count - 1; rows++)
             {
                 try
                 {
@@ -148,6 +145,7 @@ namespace WinFormsApp1
 
             return data;
         }
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -190,9 +188,18 @@ namespace WinFormsApp1
             label11.Visible = true;
         }
 
+        void FillProductionGrid()
+        {
+            DatabaseWorks db = new DatabaseWorks();
+            dataGridViewProduction.DataSource = db.FetchData("Выпускаемая_продукция.*, Вид_выпускаемой_продукции.наименование_вида", "Выпускаемая_продукция, Вид_выпускаемой_продукции", "");
+        }
+
         private void button6_Click(object sender, EventArgs e)
         {
-
+            DatabaseWorks db = new DatabaseWorks();
+            dataGridViewTemp.DataSource = db.GetKey("Вид_выпускаемой_продукции", "код_вида", "наименование_вида", $"'{comboBoxRadiatorType.Text}'");
+            db.AddRadiator(textBoxRadiatorName.Text, textBoxRAdiatorShName.Text, textBoxRadiatorDesc.Text, Convert.ToInt32(dataGridViewTemp.Rows[0].Cells[0].Value), Convert.ToDouble(textBoxTechProkladka.Text), Convert.ToDouble(textBoxTechVibrator.Text), Convert.ToDouble(textBoxTechTemp.Text), Convert.ToDouble(textBoxTechYears.Text));
+            FillProductionGrid();
         }
 
         private void buttonRadiatorTypeAdd_Click(object sender, EventArgs e)
@@ -216,7 +223,7 @@ namespace WinFormsApp1
         {
             DatabaseWorks db = new DatabaseWorks();
             dataGridViewTemp.DataSource = db.GetKey("Единицы_измерения", "код_единицы_измерения", "название", $"'{comboBoxRadiatorMetrics.Text}'");
-            db.AddRadiator(textBoxRadiatorTypeName.Text, textBoxRTypeShortName.Text, textBoxRTypeDescription.Text, Convert.ToInt32(dataGridViewTemp.Rows[0].Cells[0].Value));
+            db.AddRadiatorType(textBoxRadiatorTypeName.Text, textBoxRTypeShortName.Text, textBoxRTypeDescription.Text, Convert.ToInt32(dataGridViewTemp.Rows[0].Cells[0].Value));
             dataGridViewTemp.DataSource = db.FetchData("код_вида", "Вид_выпускаемой_продукции", "");
             int RadTypeKey = Convert.ToInt32(dataGridViewTemp.Rows[dataGridViewTemp.Rows.Count - 2].Cells[0].Value);
             foreach (DataGridViewRow row in dataGridViewTechPrefSelect.SelectedRows)
@@ -255,12 +262,6 @@ namespace WinFormsApp1
             dataGridViewProdType.DataSource = db.FetchData("наименование_вида, краткое_название_вида, описание, Единицы_измерения.название AS Единица_измерения", "Вид_выпускаемой_продукции, Единицы_измерения", "WHERE Вид_выпускаемой_продукции.код_единицы_измерения = Единицы_измерения.код_единицы_измерения");
         }
 
-        void FillProductionGrid()
-        {
-            DatabaseWorks db = new DatabaseWorks();
-
-        }
-
         void FillRadiatorTypeSelect()
         {
             DatabaseWorks db = new DatabaseWorks();
@@ -278,6 +279,7 @@ namespace WinFormsApp1
             {
                 case 0:
                     FillRadiatorTypeSelect();
+                    FillProductionGrid();
                     break;
                 case 3:
                     FillTechMetricSelect();
