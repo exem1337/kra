@@ -62,9 +62,10 @@ namespace WinFormsApp1
             sql.ExecuteNonQuery();
         }
 
-        public void AddPredpriyatie()
+        public void AddPredpriyatie(string Name, int OtdelKey)
         {
-
+            SqlCommand sql = new SqlCommand($"INSERT INTO Предприятие (наименование, код_отдела) VALUES ('{Name}', {OtdelKey});", connection);
+            sql.ExecuteNonQuery();
         }
 
         public void ConnectRadTypeTechPref(int RadTypeKey, int TechPrefKey)

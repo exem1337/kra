@@ -149,9 +149,15 @@
             this.buttonAddTechShow = new System.Windows.Forms.Button();
             this.textBoxTechShowShName = new System.Windows.Forms.TextBox();
             this.textBoxTechShowName = new System.Windows.Forms.TextBox();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewTemp = new System.Windows.Forms.DataGridView();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.textBoxPredprName = new System.Windows.Forms.TextBox();
+            this.buttonPredprAdd = new System.Windows.Forms.Button();
+            this.comboBoxOtdelSelect = new System.Windows.Forms.ComboBox();
+            this.label53 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -173,6 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTechPrefSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdType)).BeginInit();
             this.tabPage10.SuspendLayout();
+            this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTemp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -1308,6 +1315,22 @@
             this.textBoxTechShowName.Size = new System.Drawing.Size(241, 23);
             this.textBoxTechShowName.TabIndex = 20;
             // 
+            // tabPage11
+            // 
+            this.tabPage11.Controls.Add(this.comboBoxOtdelSelect);
+            this.tabPage11.Controls.Add(this.label53);
+            this.tabPage11.Controls.Add(this.buttonPredprAdd);
+            this.tabPage11.Controls.Add(this.label52);
+            this.tabPage11.Controls.Add(this.textBoxPredprName);
+            this.tabPage11.Controls.Add(this.label23);
+            this.tabPage11.Location = new System.Drawing.Point(4, 24);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(901, 683);
+            this.tabPage11.TabIndex = 5;
+            this.tabPage11.Text = "Предприятие";
+            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
@@ -1326,15 +1349,58 @@
             this.dataGridViewTemp.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewTemp.TabIndex = 25;
             // 
-            // tabPage11
+            // label23
             // 
-            this.tabPage11.Location = new System.Drawing.Point(4, 24);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(901, 683);
-            this.tabPage11.TabIndex = 5;
-            this.tabPage11.Text = "Предприятие";
-            this.tabPage11.UseVisualStyleBackColor = true;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 3);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(142, 15);
+            this.label23.TabIndex = 28;
+            this.label23.Text = "Технический показатель";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(6, 32);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(59, 15);
+            this.label52.TabIndex = 30;
+            this.label52.Text = "Название";
+            // 
+            // textBoxPredprName
+            // 
+            this.textBoxPredprName.Location = new System.Drawing.Point(6, 50);
+            this.textBoxPredprName.Name = "textBoxPredprName";
+            this.textBoxPredprName.Size = new System.Drawing.Size(241, 23);
+            this.textBoxPredprName.TabIndex = 29;
+            // 
+            // buttonPredprAdd
+            // 
+            this.buttonPredprAdd.Location = new System.Drawing.Point(7, 170);
+            this.buttonPredprAdd.Name = "buttonPredprAdd";
+            this.buttonPredprAdd.Size = new System.Drawing.Size(100, 41);
+            this.buttonPredprAdd.TabIndex = 31;
+            this.buttonPredprAdd.Text = "Добавить";
+            this.buttonPredprAdd.UseVisualStyleBackColor = true;
+            this.buttonPredprAdd.Click += new System.EventHandler(this.buttonPredprAdd_Click);
+            // 
+            // comboBoxOtdelSelect
+            // 
+            this.comboBoxOtdelSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOtdelSelect.FormattingEnabled = true;
+            this.comboBoxOtdelSelect.Location = new System.Drawing.Point(53, 79);
+            this.comboBoxOtdelSelect.Name = "comboBoxOtdelSelect";
+            this.comboBoxOtdelSelect.Size = new System.Drawing.Size(194, 23);
+            this.comboBoxOtdelSelect.TabIndex = 33;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(7, 82);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(40, 15);
+            this.label53.TabIndex = 32;
+            this.label53.Text = "Отдел";
             // 
             // Form1
             // 
@@ -1373,6 +1439,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdType)).EndInit();
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTemp)).EndInit();
             this.ResumeLayout(false);
 
@@ -1500,5 +1568,11 @@
         private TextBox textBoxRadiatorName;
         private Label label1;
         private TabPage tabPage11;
+        private Label label52;
+        private TextBox textBoxPredprName;
+        private Label label23;
+        private Button buttonPredprAdd;
+        private ComboBox comboBoxOtdelSelect;
+        private Label label53;
     }
 }

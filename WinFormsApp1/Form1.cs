@@ -371,5 +371,10 @@ namespace WinFormsApp1
                 textBoxDemandedCapacity.Text = String.Empty;
             }
         }
+
+        private void buttonPredprAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
