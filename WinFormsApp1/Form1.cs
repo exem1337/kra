@@ -8,9 +8,31 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             FillRadiatorTypeSelect();
+            this.toggleLabels(false);
         }
 
         protected KRA kra = new KRA();
+
+        private void toggleLabels(bool value)
+        {
+            label2.Visible = value;
+            label3.Visible = value;
+            label4.Visible = value;
+            label5.Visible = value;
+            label6.Visible = value;
+            label7.Visible = value;
+            label8.Visible = value;
+            label13.Visible = value;
+            label21.Visible = value;
+            label20.Visible = value;
+            label19.Visible = value;
+            label18.Visible = value;
+            label8.Visible = value;
+            label9.Visible = value;
+            label17.Visible = value;
+            label16.Visible = value;
+            label14.Visible = value;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -23,63 +45,94 @@ namespace WinFormsApp1
                 new List<double>() { 100, 150, 130, 45, 75 },
                 new List<double>() { 100, 142, 140, 80, 60 }
 
-                //readDataGrid(0), readDataGrid(1), readDataGrid(2), readDataGrid(3)
+                readDataGrid1(0), readDataGrid1(1), readDataGrid2(0), readDataGrid2(1)
                 //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
                 //new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 },
                 //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
                 //new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 }
                 );
                 kra.startKra();
-                label1.Text = $"Эластичность {kra.elasticAl}";
-                label2.Text = $"Коэффициент корреляции r : {kra.r}";
-                label3.Text = $"Параметр a0 : {kra.countA0}";
-                label4.Text = $"Параметр a1 : {kra.countA1}";
-                label5.Text = $"sigmaY {kra.sigmaY}";
-                label6.Text = $"sigmaYX {kra.sigmaYX}";
-                label7.Text = $"Коэффициент детерминации R : {kra.bigR}";
-                label8.Text = $"Уравнение регрессии алюминиевых радиаторов : {kra.regressionExpressionAl}";
 
-                label13.Text = $"Эластичность {kra.elasticCu}";
-                label15.Text = $"Коэффициент корреляции r : {kra.rCu}";
-                label17.Text = $"Параметр a0 : {kra.countA0Cu}";
-                label19.Text = $"Параметр a1 : {kra.countA1Cu}";
-                label18.Text = $"sigmaY {kra.sigmaYCu}";
-                label16.Text = $"sigmaYX {kra.sigmaYXCu}";
-                label14.Text = $"Коэффициент детерминации R : {kra.bigRCu}";
-                label20.Text = $"Уравнение регрессии медных радиаторов : {kra.regressionExpressionCu}";
-
-                if (kra.bigR > kra.bigRCu) {
-                    label23.Text = $"В следующем месяце требуется увеличить производство : алюминиевых радиаторов";
-                }
-                else { label23.Text = $"В следующем месяце требуется увеличить производство : медных радиаторов ";
-                }
-
-                if (kra.bigR == kra.bigRCu)
+                if (Double.IsNaN(kra.elasticAl))
                 {
-                    label23.Text = $"Сбалансированное производство, требуется производство в равных количествах";
+                    MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                else { }
-           
 
+                this.toggleLabels(true);
 
+                label2.Text = $"Эластичность {kra.elasticAl}";
+                label3.Text = $"Эластичность {kra.elasticCu}";
+
+                label4.Text = $"Уравнение регрессии Алюминий {kra.regressionExpressionAl}";
+                label5.Text = $"Уравнение регрессии Медь {kra.regressionExpressionCu}";
+                
+                label6.Text = $"Коэффициент кореляции r: {kra.r}";
+                label7.Text = $"Коэффициент кореляции r: {kra.rCu}";
+                
+                label8.Text = $"Параметр а0 {kra.countA0}";
+                label13.Text = $"Параметр а0 {kra.countA0Cu}";
+
+                label21.Text = $"Параметр а1 {kra.countA1}";
+                label20.Text = $"Параметр а1 {kra.countA1Cu}";
+
+                label19.Text = $"SigmaY {kra.sigmaY}";
+                label18.Text = $"SigmaY {kra.sigmaYCu}";
+
+                label8.Text = $"SigmaYX {kra.sigmaYX}";
+                label9.Text = $"SigmaYX {kra.sigmaYXCu}";
+
+                label17.Text = $"Коэфициент детерминации R {kra.bigR}";
+                label16.Text = $"Коэфициент детерминации R {kra.bigRCu}";
+
+                if (kra.bigR > kra.bigRCu)
+                {
+                    label14.Text = "Итог прогнозирования: увеличить производство алюминевых радиаторов на следующий период";
+                }
+                else if (kra.bigR == kra.bigRCu)
+                {
+                    label14.Text = "Сбалансированное производство. Изменений не требуется.";
+                }
+                else
+                {
+                    label14.Text = "Итог прогнозирования: увеличить производство медных радиаторов на следующий период";
+                }
             }
-            catch(Exception exc)
+            catch(Exception)    
             {
-                //throw new Exception(exc.Message);
                 MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //dataGridView1.Rows.Clear();
-
             }
         }
 
       
 
 
-        private List<double> readDataGrid(int index)
+        private List<double> readDataGrid1(int index)
         {
             List<double> data = new List<double>();
             
             for (int rows = 0; rows < dataGridView1.Rows.Count-1; rows++)
+            {
+                try
+                {
+                    data.Add(Convert.ToDouble(dataGridView1.Rows[rows].Cells[index].Value));
+                }
+                //catch (Exception exc)
+                catch (Exception exc)
+                {
+                    throw new Exception(exc.Message);
+                    //MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return data;
+        }
+
+        private List<double> readDataGrid2(int index)
+        {
+            List<double> data = new List<double>();
+
+            for (int rows = 0; rows < dataGridView1.Rows.Count - 1; rows++)
             {
                 try
                 {
