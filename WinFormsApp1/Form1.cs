@@ -65,10 +65,10 @@ namespace WinFormsApp1
 
                 label4.Text = $"Уравнение регрессии Алюминий {kra.regressionExpressionAl}";
                 label5.Text = $"Уравнение регрессии Медь {kra.regressionExpressionCu}";
-                
+
                 label6.Text = $"Коэффициент кореляции r: {kra.r}";
                 label7.Text = $"Коэффициент кореляции r: {kra.rCu}";
-                
+
                 label8.Text = $"Параметр а0 {kra.countA0}";
                 label13.Text = $"Параметр а0 {kra.countA0Cu}";
 
@@ -97,20 +97,20 @@ namespace WinFormsApp1
                     label14.Text = "Итог прогнозирования: увеличить производство медных радиаторов на следующий период";
                 }
             }
-            catch(Exception)    
+            catch (Exception)
             {
                 MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-      
+
 
 
         private List<double> readDataGrid1(int index)
         {
             List<double> data = new List<double>();
-            
-            for (int rows = 0; rows < dataGridView1.Rows.Count-1; rows++)
+
+            for (int rows = 0; rows < dataGridView1.Rows.Count - 1; rows++)
             {
                 try
                 {
