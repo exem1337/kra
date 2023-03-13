@@ -32,6 +32,9 @@
             tabPage1 = new TabPage();
             tabControl2 = new TabControl();
             tabPage3 = new TabPage();
+            button6 = new Button();
+            label23 = new Label();
+            label22 = new Label();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             button1 = new Button();
@@ -53,6 +56,8 @@
             label6 = new Label();
             label4 = new Label();
             dataGridView1 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
             tabPage2 = new TabPage();
             button5 = new Button();
             label21 = new Label();
@@ -75,11 +80,14 @@
             label13 = new Label();
             label12 = new Label();
             dataGridView4 = new DataGridView();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
             dataGridView3 = new DataGridView();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
             dataGridView2 = new DataGridView();
-            label22 = new Label();
-            label23 = new Label();
-            button6 = new Button();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabControl2.SuspendLayout();
@@ -145,6 +153,35 @@
             tabPage3.Text = "Клиентская часть";
             tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button6
+            // 
+            button6.Location = new Point(285, 279);
+            button6.Name = "button6";
+            button6.Size = new Size(126, 35);
+            button6.TabIndex = 7;
+            button6.Text = "Отменить";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(185, 343);
+            label23.Name = "label23";
+            label23.Size = new Size(172, 15);
+            label23.TabIndex = 6;
+            label23.Text = "Перейдите в серверную часть";
+            label23.Visible = false;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label22.Location = new Point(194, 100);
+            label22.Name = "label22";
+            label22.Size = new Size(151, 25);
+            label22.TabIndex = 5;
+            label22.Text = "Аунтификация";
+            // 
             // textBox2
             // 
             textBox2.Location = new Point(194, 219);
@@ -167,6 +204,7 @@
             button1.TabIndex = 2;
             button1.Text = "Войти";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -207,6 +245,7 @@
             button2.TabIndex = 1;
             button2.Text = "Продолжить";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // splitContainer1
             // 
@@ -342,11 +381,22 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
             dataGridView1.Location = new Point(6, 6);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(488, 95);
             dataGridView1.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Логин";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Пароль";
+            Column2.Name = "Column2";
             // 
             // tabPage2
             // 
@@ -389,6 +439,7 @@
             button5.TabIndex = 22;
             button5.Text = "Продолжить";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // label21
             // 
@@ -458,6 +509,7 @@
             button4.TabIndex = 14;
             button4.Text = "Аунтификация";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // textBox9
             // 
@@ -517,6 +569,7 @@
             button3.TabIndex = 7;
             button3.Text = "Генерация ключей";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // textBox7
             // 
@@ -553,58 +606,62 @@
             // dataGridView4
             // 
             dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView4.Columns.AddRange(new DataGridViewColumn[] { Column5, Column6 });
             dataGridView4.Location = new Point(6, 397);
             dataGridView4.Name = "dataGridView4";
             dataGridView4.RowTemplate.Height = 25;
             dataGridView4.Size = new Size(240, 150);
             dataGridView4.TabIndex = 2;
             // 
+            // Column5
+            // 
+            Column5.HeaderText = "Номер";
+            Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Ключ";
+            Column6.Name = "Column6";
+            // 
             // dataGridView3
             // 
             dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Columns.AddRange(new DataGridViewColumn[] { Column3, Column4 });
             dataGridView3.Location = new Point(6, 205);
             dataGridView3.Name = "dataGridView3";
             dataGridView3.RowTemplate.Height = 25;
             dataGridView3.Size = new Size(240, 150);
             dataGridView3.TabIndex = 1;
             // 
+            // Column3
+            // 
+            Column3.HeaderText = "Номер";
+            Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Ключ";
+            Column4.Name = "Column4";
+            // 
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2 });
             dataGridView2.Location = new Point(6, 6);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowTemplate.Height = 25;
             dataGridView2.Size = new Size(240, 150);
             dataGridView2.TabIndex = 0;
             // 
-            // label22
+            // dataGridViewTextBoxColumn1
             // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label22.Location = new Point(194, 100);
-            label22.Name = "label22";
-            label22.Size = new Size(151, 25);
-            label22.TabIndex = 5;
-            label22.Text = "Аунтификация";
+            dataGridViewTextBoxColumn1.HeaderText = "Логин";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // label23
+            // dataGridViewTextBoxColumn2
             // 
-            label23.AutoSize = true;
-            label23.Location = new Point(185, 343);
-            label23.Name = "label23";
-            label23.Size = new Size(172, 15);
-            label23.TabIndex = 6;
-            label23.Text = "Перейдите в серверную часть";
-            label23.Visible = false;
-            // 
-            // button6
-            // 
-            button6.Location = new Point(285, 279);
-            button6.Name = "button6";
-            button6.Size = new Size(126, 35);
-            button6.TabIndex = 7;
-            button6.Text = "Отменить";
-            button6.UseVisualStyleBackColor = true;
+            dataGridViewTextBoxColumn2.HeaderText = "Пароль";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // Form2
             // 
@@ -614,6 +671,7 @@
             Controls.Add(tabControl1);
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabControl2.ResumeLayout(false);
@@ -689,5 +747,13 @@
         private Button button6;
         private Label label23;
         private Label label22;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

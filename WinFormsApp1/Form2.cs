@@ -29,7 +29,7 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
             int i = 0;
             foreach (string log in login)
@@ -122,6 +122,9 @@ namespace WinFormsApp1
                             label5.Text = "Ответ: Аутентификация пройдена";
                             label6.Text = "Запрос: Подтверждение аутентификации";
                             MessageBox.Show("Аутентификация успешна");
+                            Form1 form1 = new Form1();
+                            form1.Show();
+                            Close();
                         }
                         else
                         {
