@@ -7,6 +7,10 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            if (UserStore.role == "operator")
+            {
+                tabControl1.TabPages[2].Parent = null;
+            }
             this.toggleLabels(false);
         }
 
