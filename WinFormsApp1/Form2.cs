@@ -15,7 +15,7 @@ namespace WinFormsApp1
 {
     public partial class Form2 : Form
     {
-        string[] login = { "dima", "123", "operator" };
+        string[] login = { "dima", "admin", "operator" };
         string[] pass = { "123", "123", "123" };
         int N;
         string hash1;
