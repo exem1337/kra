@@ -49,7 +49,7 @@ namespace WinFormsApp1
             id = 0;
             foreach (string log in login)
             {
-                if (textBox2.Text == log)
+                if (textBox1.Text == log)
                 {
                     flag = true;
                     break;
@@ -60,16 +60,10 @@ namespace WinFormsApp1
             }
             if (flag == true)
             {
-                label5.Text = "Ответ: генерация ключа N";
-                label6.Text = "Запрос: Ключ аутентификации";
-                label5.Visible = true;
-                label6.Visible = true;
+                
                 Random rnd = new Random();
                 N = rnd.Next();
-                label7.Text = $"N = {N}";
-                label7.Visible = true;
-
-                label23.Visible = true;
+               
             }
             else { MessageBox.Show("Ошибка аутентификации: неверный логин или пароль"); }
             flag = false;
@@ -77,6 +71,22 @@ namespace WinFormsApp1
             if (textBox2.Text == "admin")
                 UserStore.role = "operator";
             else UserStore.role = "rukovoditel";
+            string NP = N + textBox2.Text;
+            hash1 = SHA(NP);
+            string NP1 = N + pass[id];
+            hash2 = SHA(NP1);
+            if (hash1 == hash2)
+            {
+               
+                MessageBox.Show("Аутентификация успешна");
+                Form1 form1 = new Form1();
+                form1.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Ошибка аутентификации: неверный логин или пароль");
+            }
         }
 
         int counter = 0;
@@ -89,16 +99,12 @@ namespace WinFormsApp1
             {
                 case 0:
                     {
-                        label5.Text = "Запрос: Захешированный пароль";
-                        label6.Text = "Ответ: Генерация хеш-пароля Hash(N,P)";
-                        label8.Text = $"N = {N}";
-                        label8.Visible = true;
+                        
                         // label9.Text = SHA(N+textBox1.Text);
-                        label9.Visible = true;
-                        string NP = N + textBox1.Text;
+                        
+                        string NP = N + textBox2.Text;
                         hash1 = SHA(NP);
-                        textBox3.Text = hash1;
-                        textBox3.Visible = true;
+                        
                         counter++;
                         break;
                     }
