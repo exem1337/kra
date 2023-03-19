@@ -60,10 +60,10 @@ namespace WinFormsApp1
             }
             if (flag == true)
             {
-                
+
                 Random rnd = new Random();
                 N = rnd.Next();
-               
+
             }
             else { MessageBox.Show("Ошибка аутентификации: неверный логин или пароль"); }
             flag = false;
@@ -97,7 +97,7 @@ namespace WinFormsApp1
             hash2 = SHA(NP1);
             if (hash1 == hash2)
             {
-               
+
                 MessageBox.Show("Аутентификация успешна");
                 Form1 form1 = new Form1();
                 form1.Show();
@@ -119,12 +119,12 @@ namespace WinFormsApp1
             {
                 case 0:
                     {
-                        
+
                         // label9.Text = SHA(N+textBox1.Text);
-                        
+
                         string NP = N + textBox2.Text;
                         hash1 = SHA(NP);
-                        
+
                         counter++;
                         break;
                     }

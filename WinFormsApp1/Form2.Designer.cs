@@ -670,7 +670,7 @@
             ClientSize = new Size(781, 646);
             Controls.Add(tabControl1);
             Name = "Form2";
-            Text = "Form2";
+            Text = "Авторизация";
             Load += Form2_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
