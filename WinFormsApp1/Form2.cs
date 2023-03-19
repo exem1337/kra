@@ -15,8 +15,8 @@ namespace WinFormsApp1
 {
     public partial class Form2 : Form
     {
-        string[] login = { "dima", "admin", "operator" };
-        string[] pass = { "123", "123", "123" };
+        string[] login = { "admin", "ruk", "operator" };
+        string[] pass = { "admin", "123", "123" };
         int N;
         string hash1;
         string hash2;
@@ -68,7 +68,7 @@ namespace WinFormsApp1
             else { MessageBox.Show("Ошибка аутентификации: неверный логин или пароль"); }
             flag = false;
 
-            if (textBox2.Text == "admin")
+            if (textBox1.Text == "admin")
                 UserStore.role = "operator";
             else UserStore.role = "rukovoditel";
             string NP = N + textBox2.Text;
