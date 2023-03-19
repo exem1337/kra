@@ -74,22 +74,23 @@
             pictureBox1 = new PictureBox();
             label9 = new Label();
             tabPage4 = new TabPage();
-            tabPage3 = new TabPage();
-            label15 = new Label();
-            label22 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            label23 = new Label();
-            dateTimePicker2 = new DateTimePicker();
-            button3 = new Button();
+            label24 = new Label();
+            button5 = new Button();
+            button4 = new Button();
             dataGridView4 = new DataGridView();
             Column10 = new DataGridViewTextBoxColumn();
             Column11 = new DataGridViewTextBoxColumn();
             Column13 = new DataGridViewTextBoxColumn();
             Column14 = new DataGridViewTextBoxColumn();
             Column12 = new DataGridViewTextBoxColumn();
-            button4 = new Button();
-            button5 = new Button();
-            label24 = new Label();
+            button3 = new Button();
+            dateTimePicker2 = new DateTimePicker();
+            label23 = new Label();
+            dateTimePicker1 = new DateTimePicker();
+            label22 = new Label();
+            label15 = new Label();
+            tabPage3 = new TabPage();
+            tabPage5 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -118,6 +119,7 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage5);
             tabControl1.Location = new Point(12, 12);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -506,67 +508,33 @@
             tabPage4.Text = "Статистический отчет";
             tabPage4.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // label24
             // 
-            tabPage3.Location = new Point(4, 24);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(915, 727);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "Справка";
-            tabPage3.UseVisualStyleBackColor = true;
+            label24.AutoSize = true;
+            label24.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label24.Location = new Point(54, 559);
+            label24.Name = "label24";
+            label24.Size = new Size(335, 21);
+            label24.TabIndex = 13;
+            label24.Text = "Требуемый обьем на следующий месяц :";
             // 
-            // label15
+            // button5
             // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label15.Location = new Point(103, 27);
-            label15.Name = "label15";
-            label15.Size = new Size(754, 25);
-            label15.TabIndex = 4;
-            label15.Text = "Статистический отчет выпускаемой продукции ООО \"Оренбургский радиатор\"";
+            button5.Location = new Point(514, 614);
+            button5.Name = "button5";
+            button5.Size = new Size(252, 61);
+            button5.TabIndex = 12;
+            button5.Text = "Сохранит в word";
+            button5.UseVisualStyleBackColor = true;
             // 
-            // label22
+            // button4
             // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label22.Location = new Point(25, 88);
-            label22.Name = "label22";
-            label22.Size = new Size(224, 21);
-            label22.TabIndex = 5;
-            label22.Text = "Создать отчет за период с :";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(280, 90);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 6;
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label23.Location = new Point(552, 92);
-            label23.Name = "label23";
-            label23.Size = new Size(30, 21);
-            label23.TabIndex = 7;
-            label23.Text = "по";
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Location = new Point(657, 90);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 8;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(251, 152);
-            button3.Name = "button3";
-            button3.Size = new Size(362, 41);
-            button3.TabIndex = 9;
-            button3.Text = "Создать";
-            button3.UseVisualStyleBackColor = true;
+            button4.Location = new Point(164, 614);
+            button4.Name = "button4";
+            button4.Size = new Size(252, 61);
+            button4.TabIndex = 11;
+            button4.Text = "Сохранить отчет за текущий период";
+            button4.UseVisualStyleBackColor = true;
             // 
             // dataGridView4
             // 
@@ -609,35 +577,79 @@
             Column12.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             Column12.HeaderText = "Прогноз выпуска на следующий период";
             Column12.Name = "Column12";
-            Column12.Width = 120;
+            Column12.Width = 196;
             // 
-            // button4
+            // button3
             // 
-            button4.Location = new Point(164, 614);
-            button4.Name = "button4";
-            button4.Size = new Size(252, 61);
-            button4.TabIndex = 11;
-            button4.Text = "Сохранить отчет за текущий период";
-            button4.UseVisualStyleBackColor = true;
+            button3.Location = new Point(251, 152);
+            button3.Name = "button3";
+            button3.Size = new Size(362, 41);
+            button3.TabIndex = 9;
+            button3.Text = "Создать";
+            button3.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // dateTimePicker2
             // 
-            button5.Location = new Point(514, 614);
-            button5.Name = "button5";
-            button5.Size = new Size(252, 61);
-            button5.TabIndex = 12;
-            button5.Text = "Сохранит в word";
-            button5.UseVisualStyleBackColor = true;
+            dateTimePicker2.Location = new Point(657, 90);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(200, 23);
+            dateTimePicker2.TabIndex = 8;
             // 
-            // label24
+            // label23
             // 
-            label24.AutoSize = true;
-            label24.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label24.Location = new Point(54, 559);
-            label24.Name = "label24";
-            label24.Size = new Size(335, 21);
-            label24.TabIndex = 13;
-            label24.Text = "Требуемый обьем на следующий месяц :";
+            label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label23.Location = new Point(552, 92);
+            label23.Name = "label23";
+            label23.Size = new Size(30, 21);
+            label23.TabIndex = 7;
+            label23.Text = "по";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(280, 90);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 6;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label22.Location = new Point(25, 88);
+            label22.Name = "label22";
+            label22.Size = new Size(224, 21);
+            label22.TabIndex = 5;
+            label22.Text = "Создать отчет за период с :";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Location = new Point(103, 27);
+            label15.Name = "label15";
+            label15.Size = new Size(754, 25);
+            label15.TabIndex = 4;
+            label15.Text = "Статистический отчет выпускаемой продукции ООО \"Оренбургский радиатор\"";
+            // 
+            // tabPage3
+            // 
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Size = new Size(915, 727);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Справка";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            tabPage5.Location = new Point(4, 24);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Padding = new Padding(3);
+            tabPage5.Size = new Size(915, 727);
+            tabPage5.TabIndex = 4;
+            tabPage5.Text = "Редактор базы данных";
+            tabPage5.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -724,5 +736,6 @@
         private DateTimePicker dateTimePicker1;
         private Label label22;
         private Label label15;
+        private TabPage tabPage5;
     }
 }

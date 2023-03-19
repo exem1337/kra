@@ -68,9 +68,29 @@ namespace WinFormsApp1
             else { MessageBox.Show("Ошибка аутентификации: неверный логин или пароль"); }
             flag = false;
 
-            if (textBox1.Text == "admin")
+            //if (textBox1.Text == "admin")
+            //    UserStore.role = "operator";
+            //else UserStore.role = "rukovoditel";
+
+            if (textBox1.Text == "operator")
+            {
                 UserStore.role = "operator";
-            else UserStore.role = "rukovoditel";
+                MessageBox.Show("Вы вошли как оператор");
+            }
+
+            if (textBox1.Text == "ruk")
+            {
+                UserStore.role = "rukovoditel";
+                MessageBox.Show("Вы вошли как руководитель");
+            }
+
+            if (textBox1.Text == "admin")
+            {
+                UserStore.role = "admin";
+                MessageBox.Show("Вы вошли как администратор. Доступны расширенные действия ");
+            }
+
+
             string NP = N + textBox2.Text;
             hash1 = SHA(NP);
             string NP1 = N + pass[id];

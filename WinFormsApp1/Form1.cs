@@ -10,6 +10,11 @@ namespace WinFormsApp1
             if (UserStore.role == "operator")
             {
                 tabControl1.TabPages[2].Parent = null;
+                tabControl1.TabPages[3].Parent = null;
+            }
+            if (UserStore.role == "rukovoditel")
+            {
+                tabControl1.TabPages[4].Parent = null;
             }
             this.toggleLabels(false);
         }
