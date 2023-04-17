@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.experimentPointsInput = new System.Windows.Forms.TextBox();
+            this.resultFuncLabel = new System.Windows.Forms.Label();
+            this.resultLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +75,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.fisherLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -94,6 +95,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Начать";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // tabControl1
             // 
@@ -109,21 +111,19 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
+            this.tabPage1.Controls.Add(this.fisherLabel);
+            this.tabPage1.Controls.Add(this.experimentPointsInput);
+            this.tabPage1.Controls.Add(this.resultFuncLabel);
+            this.tabPage1.Controls.Add(this.resultLabel);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.label16);
-            this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.label18);
-            this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.label20);
-            this.tabPage1.Controls.Add(this.label21);
             this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.dataGridView3);
             this.tabPage1.Controls.Add(this.dataGridView1);
@@ -135,6 +135,32 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Прогнозирование";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // experimentPointsInput
+            // 
+            this.experimentPointsInput.Location = new System.Drawing.Point(734, 351);
+            this.experimentPointsInput.Name = "experimentPointsInput";
+            this.experimentPointsInput.Size = new System.Drawing.Size(100, 23);
+            this.experimentPointsInput.TabIndex = 21;
+            this.experimentPointsInput.Text = "20";
+            // 
+            // resultFuncLabel
+            // 
+            this.resultFuncLabel.AutoSize = true;
+            this.resultFuncLabel.Location = new System.Drawing.Point(16, 445);
+            this.resultFuncLabel.Name = "resultFuncLabel";
+            this.resultFuncLabel.Size = new System.Drawing.Size(164, 15);
+            this.resultFuncLabel.TabIndex = 20;
+            this.resultFuncLabel.Text = "Результатирующая функция";
+            // 
+            // resultLabel
+            // 
+            this.resultLabel.AutoSize = true;
+            this.resultLabel.Location = new System.Drawing.Point(16, 348);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(115, 15);
+            this.resultLabel.TabIndex = 19;
+            this.resultLabel.Text = "Степень кореляции";
             // 
             // label14
             // 
@@ -148,128 +174,65 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(486, 512);
+            this.label16.Location = new System.Drawing.Point(199, 868);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(44, 15);
             this.label16.TabIndex = 17;
             this.label16.Text = "label16";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(16, 512);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(44, 15);
-            this.label17.TabIndex = 16;
-            this.label17.Text = "label17";
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(486, 482);
+            this.label18.Location = new System.Drawing.Point(199, 838);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(44, 15);
             this.label18.TabIndex = 15;
             this.label18.Text = "label18";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(16, 482);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(44, 15);
-            this.label19.TabIndex = 14;
-            this.label19.Text = "label19";
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(486, 448);
+            this.label20.Location = new System.Drawing.Point(199, 804);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(44, 15);
             this.label20.TabIndex = 13;
             this.label20.Text = "label20";
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(16, 448);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(44, 15);
-            this.label21.TabIndex = 12;
-            this.label21.Text = "label21";
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(486, 411);
+            this.label13.Location = new System.Drawing.Point(199, 767);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(44, 15);
             this.label13.TabIndex = 11;
             this.label13.Text = "label13";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 411);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 15);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "label8";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(486, 379);
+            this.label7.Location = new System.Drawing.Point(199, 735);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 15);
             this.label7.TabIndex = 9;
             this.label7.Text = "label7";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 379);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 15);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "label6";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(486, 540);
+            this.label5.Location = new System.Drawing.Point(199, 896);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 15);
             this.label5.TabIndex = 7;
             this.label5.Text = "label5";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 540);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "label4";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(486, 348);
+            this.label3.Location = new System.Drawing.Point(-300, 941);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 15);
             this.label3.TabIndex = 5;
             this.label3.Text = "label3";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 348);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
             // 
             // label1
             // 
@@ -286,32 +249,58 @@
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
-            this.Column9});
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13});
+            this.dataGridView3.EnableHeadersVisualStyles = false;
             this.dataGridView3.Location = new System.Drawing.Point(16, 55);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.Size = new System.Drawing.Size(430, 290);
+            this.dataGridView3.Size = new System.Drawing.Size(818, 290);
             this.dataGridView3.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Факт выпуска алюминевых радиаторов за прошлый месяц";
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Температура окружающей среды";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 187;
+            this.dataGridViewTextBoxColumn1.Width = 168;
             // 
             // Column9
             // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column9.HeaderText = "Факт выпуска алюминевых радиаторов за позапрошлый месяц";
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column9.HeaderText = "Цена";
             this.Column9.Name = "Column9";
             this.Column9.Width = 200;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Цена конкурентов";
+            this.Column10.Name = "Column10";
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Цена на рекламу";
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Скидка";
+            this.Column12.Name = "Column12";
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Количество проданных";
+            this.Column13.Name = "Column13";
             // 
             // dataGridView1
             // 
@@ -319,7 +308,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
             this.Column8});
-            this.dataGridView1.Location = new System.Drawing.Point(478, 55);
+            this.dataGridView1.Location = new System.Drawing.Point(-308, 648);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dataGridView1.RowTemplate.Height = 25;
@@ -329,18 +318,18 @@
             // Column7
             // 
             this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column7.HeaderText = "Факт выпуска медных радиаторов за позапрошлый месяц";
             this.Column7.Name = "Column7";
             this.Column7.Width = 178;
             // 
             // Column8
             // 
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column8.HeaderText = "Факт выпуска медных радиаторов за позапрошлый месяц";
             this.Column8.Name = "Column8";
             this.Column8.Width = 200;
@@ -498,6 +487,15 @@
             this.tabPage3.Text = "Справка";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // fisherLabel
+            // 
+            this.fisherLabel.AutoSize = true;
+            this.fisherLabel.Location = new System.Drawing.Point(16, 477);
+            this.fisherLabel.Name = "fisherLabel";
+            this.fisherLabel.Size = new System.Drawing.Size(109, 15);
+            this.fisherLabel.TabIndex = 22;
+            this.fisherLabel.Text = "Критерий фишера";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -548,23 +546,24 @@
         private Label label1;
         private DataGridView dataGridView3;
         private Label label7;
-        private Label label6;
         private Label label5;
-        private Label label4;
         private Label label3;
-        private Label label2;
         private Label label13;
-        private Label label8;
         private Label label16;
-        private Label label17;
         private Label label18;
-        private Label label19;
         private Label label20;
-        private Label label21;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn Column9;
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn Column8;
         private Label label14;
+        private Label resultLabel;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn Column9;
+        private DataGridViewTextBoxColumn Column10;
+        private DataGridViewTextBoxColumn Column11;
+        private DataGridViewTextBoxColumn Column12;
+        private DataGridViewTextBoxColumn Column13;
+        private Label resultFuncLabel;
+        private TextBox experimentPointsInput;
+        private Label fisherLabel;
     }
 }
