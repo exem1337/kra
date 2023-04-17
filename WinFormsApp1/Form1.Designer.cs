@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.experimentPointsInput = new System.Windows.Forms.TextBox();
+            this.fisherLabel = new System.Windows.Forms.Label();
             this.resultFuncLabel = new System.Windows.Forms.Label();
             this.resultLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -75,7 +75,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.fisherLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -113,7 +112,6 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.Controls.Add(this.fisherLabel);
-            this.tabPage1.Controls.Add(this.experimentPointsInput);
             this.tabPage1.Controls.Add(this.resultFuncLabel);
             this.tabPage1.Controls.Add(this.resultLabel);
             this.tabPage1.Controls.Add(this.label14);
@@ -136,13 +134,14 @@
             this.tabPage1.Text = "Прогнозирование";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // experimentPointsInput
+            // fisherLabel
             // 
-            this.experimentPointsInput.Location = new System.Drawing.Point(734, 351);
-            this.experimentPointsInput.Name = "experimentPointsInput";
-            this.experimentPointsInput.Size = new System.Drawing.Size(100, 23);
-            this.experimentPointsInput.TabIndex = 21;
-            this.experimentPointsInput.Text = "20";
+            this.fisherLabel.AutoSize = true;
+            this.fisherLabel.Location = new System.Drawing.Point(16, 477);
+            this.fisherLabel.Name = "fisherLabel";
+            this.fisherLabel.Size = new System.Drawing.Size(109, 15);
+            this.fisherLabel.TabIndex = 22;
+            this.fisherLabel.Text = "Критерий фишера";
             // 
             // resultFuncLabel
             // 
@@ -265,19 +264,19 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "Температура окружающей среды";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.Width = 168;
             // 
             // Column9
             // 
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column9.HeaderText = "Цена";
             this.Column9.Name = "Column9";
             this.Column9.Width = 200;
@@ -318,18 +317,18 @@
             // Column7
             // 
             this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column7.HeaderText = "Факт выпуска медных радиаторов за позапрошлый месяц";
             this.Column7.Name = "Column7";
             this.Column7.Width = 178;
             // 
             // Column8
             // 
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column8.HeaderText = "Факт выпуска медных радиаторов за позапрошлый месяц";
             this.Column8.Name = "Column8";
             this.Column8.Width = 200;
@@ -487,15 +486,6 @@
             this.tabPage3.Text = "Справка";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // fisherLabel
-            // 
-            this.fisherLabel.AutoSize = true;
-            this.fisherLabel.Location = new System.Drawing.Point(16, 477);
-            this.fisherLabel.Name = "fisherLabel";
-            this.fisherLabel.Size = new System.Drawing.Size(109, 15);
-            this.fisherLabel.TabIndex = 22;
-            this.fisherLabel.Text = "Критерий фишера";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -563,7 +553,6 @@
         private DataGridViewTextBoxColumn Column12;
         private DataGridViewTextBoxColumn Column13;
         private Label resultFuncLabel;
-        private TextBox experimentPointsInput;
         private Label fisherLabel;
     }
 }
