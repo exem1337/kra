@@ -271,6 +271,26 @@ namespace WinFormsApp1
 
                 fisherLabel.Text += $": {kra.fisher}";
 
+                for (int i = 0; i < kra.pairCorrelations.Count; i++)
+                {
+                    pairAlGrid.Rows.Add(
+                        kra.pairCorrelations[i][0], 
+                        kra.pairCorrelations[i][1], 
+                        kra.pairCorrelations[i][2], 
+                        kra.pairCorrelations[i][3], 
+                        kra.pairCorrelations[i][4], 
+                        kra.pairCorrelations[i][5]
+                    );
+                    if(i != 5)
+                    {
+                        pairAlGrid.Rows[i].HeaderCell.Value = $"x{i+1}";
+                    }
+                    else
+                    {
+                        pairAlGrid.Rows[i].HeaderCell.Value = "y";
+                    }
+                }
+
                 kra._result.Clear();
 
                 //if (Double.IsNaN(kra.elasticAl))
@@ -323,6 +343,11 @@ namespace WinFormsApp1
             //    Console.WriteLine(exc.ToString());    
             //    MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

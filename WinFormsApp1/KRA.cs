@@ -51,6 +51,7 @@ namespace WinFormsApp1
 
         List<List<double>> _values;
         List<double> _y;
+        public List<List<double>> pairCorrelations = new();
 
         public void setValues(List<List<double>> values, List<double> y) {
             this._values = values;
@@ -118,6 +119,24 @@ namespace WinFormsApp1
             this.sigmaY = this.calculateSigmaY(this._y);
             this.bigRSquared = this.calculateBigRSquared(this._y);
             this.fisher = this.calculateFisher();
+
+            for (int i = 0; i < this._values.Count; i++)
+            {
+                List<double> list = new();
+                for (int j = 0; j < this._values.Count; j++)
+                {
+                    list.Add(this.calculatePairCorrelations(this._values[i], this._values[j]));
+                }
+                list.Add(this.calculatePairCorrelations(this._values[i], this._y));
+                this.pairCorrelations.Add(list);
+            }
+            List<double> listY = new();
+            for (int i = 0; i < this._values.Count; i++)
+            {
+                listY.Add(this.calculatePairCorrelations(this._y, this._values[i]));  
+            }
+            listY.Add(this.calculatePairCorrelations(this._y, this._y));
+            this.pairCorrelations.Add(listY);
         }
 
         private double a0(List<double> x, List<double> y) => (this._mathHelper.getSumValue(y) * this._mathHelper.getSumSquared(x) - this._mathHelper.getSumListsMultiplied(x, y) * this._mathHelper.getSumValue(x)) / (x.Count * this._mathHelper.getSumSquared(x) - Math.Pow(this._mathHelper.getSumValue(x), 2));
@@ -134,6 +153,29 @@ namespace WinFormsApp1
 
         private double calculateRBig(List<double> x, List<double> y, double a0, double a1, double sigmaY) => Math.Sqrt(1 - (this._mathHelper.getSquaredDifference(x, y, a0, a1) / x.Count) / sigmaY);
     
+        private double calculatePairCorrelations(List<double> x, List<double> y)
+        {    
+            double upper = 0;
+            for (int i = 0; i < x.Count; i++)
+            {
+                upper += (x[i] - this._mathHelper.getAverageValue(x)) * (y[i] - this._mathHelper.getAverageValue(y));
+            }
+
+            double lowerFirst = 0;
+            for (int i = 0; i < x.Count; i++)
+            {
+                lowerFirst += Math.Pow(x[i] - this._mathHelper.getAverageValue(x), 2);
+            }
+            double lowerSecond = 0;
+            for (int i = 0; i < x.Count; i++)
+            {
+                lowerSecond += Math.Pow(y[i] - this._mathHelper.getAverageValue(y), 2);
+            }
+            double lower = Math.Sqrt(lowerFirst * lowerSecond);
+
+            return upper / lower;
+        }
+
         private double calculateA(List<double> y, List<List<double>> x)
         {
             double avgY = this._mathHelper.getAverageValue(y);
