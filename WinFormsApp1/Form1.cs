@@ -19,6 +19,14 @@ namespace WinFormsApp1
             dataGridView3.Rows.Add(16, 3550, 4600, 5000, 15, 260);
             dataGridView3.Rows.Add(20, 2450, 2500, 22000, 0, 230);
             dataGridView3.Rows.Add(22, 2500, 2550, 40000, 5, 280);
+
+            dataGridView4.Rows.Add(-12, 2500, 2450, 50000, 5, 200);
+            dataGridView4.Rows.Add(-13, 2500, 3500, 0, 0, 125);
+            dataGridView4.Rows.Add(-5, 3550, 2525, 32000, 10, 150);
+            dataGridView4.Rows.Add(7, 2500, 2500, 41000, 10, 220);
+            dataGridView4.Rows.Add(16, 3550, 4600, 5000, 15, 260);
+            dataGridView4.Rows.Add(20, 2450, 2500, 22000, 0, 230);
+            dataGridView4.Rows.Add(22, 2500, 2550, 40000, 5, 280);
         }
 
         protected KRA kra = new KRA();
@@ -27,101 +35,8 @@ namespace WinFormsApp1
         {
             label3.Visible = value;
             label5.Visible = value;
-            label7.Visible = value;
-            label13.Visible = value;
-            label20.Visible = value;
-            label18.Visible = value;
             label9.Visible = value;
-            label16.Visible = value;
-            label14.Visible = value;
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                List<List<double>> aluminium = new List<List<double>>();
-                List<double> aluminiumResult = readDataGrid1(5);
-
-                aluminium.Add(readDataGrid1(0));
-                aluminium.Add(readDataGrid1(1));
-                aluminium.Add(readDataGrid1(2));
-                aluminium.Add(readDataGrid1(3));
-                aluminium.Add(readDataGrid1(4));
-
-                kra.setValues(
-                    aluminium, aluminiumResult
-                //new List<double>() { 100, 150, 130, 45, 75 },
-                //new List<double>() { 100, 142, 140, 80, 60 },
-                //new List<double>() { 100, 150, 130, 45, 75 },
-                //new List<double>() { 100, 142, 140, 80, 60 }
-
-                
-                //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
-                //new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 },
-                //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
-                //new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 }
-                );
-                kra.startKra();
-
-                foreach (KRAResultItem res in kra._result)
-                {
-                    resultLabel.Text = res.ToString();
-                }
-
-                //if (Double.IsNaN(kra.elasticAl))
-                //{
-                //    MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-
-                //this.toggleLabels(true);
-
-                //label2.Text = $"Эластичность {kra.elasticAl}";
-                //label3.Text = $"Эластичность {kra.elasticCu}";
-
-                //label4.Text = $"Уравнение регрессии Алюминий {kra.regressionExpressionAl}";
-                //label5.Text = $"Уравнение регрессии Медь {kra.regressionExpressionCu}";
-
-                //label6.Text = $"Коэффициент кореляции r: {kra.r}";
-                //label7.Text = $"Коэффициент кореляции r: {kra.rCu}";
-
-                //label8.Text = $"Параметр а0 {kra.countA0}";
-                //label13.Text = $"Параметр а0 {kra.countA0Cu}";
-
-                //label21.Text = $"Параметр а1 {kra.countA1}";
-                //label20.Text = $"Параметр а1 {kra.countA1Cu}";
-
-                //label19.Text = $"SigmaY {kra.sigmaY}";
-                //label18.Text = $"SigmaY {kra.sigmaYCu}";
-
-                //label8.Text = $"SigmaYX {kra.sigmaYX}";
-                //label9.Text = $"SigmaYX {kra.sigmaYXCu}";
-
-                //label17.Text = $"Коэфициент детерминации R {kra.bigR}";
-                //label16.Text = $"Коэфициент детерминации R {kra.bigRCu}";
-
-                //if (kra.bigR > kra.bigRCu)
-                //{
-                //    label14.Text = "Итог прогнозирования: увеличить производство алюминевых радиаторов на следующий период";
-                //}
-                //else if (kra.bigR == kra.bigRCu)
-                //{
-                //    label14.Text = "Сбалансированное производство. Изменений не требуется.";
-                //}
-                //else
-                //{
-                //    label14.Text = "Итог прогнозирования: увеличить производство медных радиаторов на следующий период";
-                //}
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-
 
         private List<double> readDataGrid1(int index)
         {
@@ -148,11 +63,11 @@ namespace WinFormsApp1
         {
             List<double> data = new List<double>();
 
-            for (int rows = 0; rows < dataGridView1.Rows.Count - 1; rows++)
+            for (int rows = 0; rows < dataGridView4.Rows.Count - 1; rows++)
             {
                 try
                 {
-                    data.Add(Convert.ToDouble(dataGridView1.Rows[rows].Cells[index].Value));
+                    data.Add(Convert.ToDouble(dataGridView4.Rows[rows].Cells[index].Value));
                 }
                 //catch (Exception exc)
                 catch (Exception exc)
@@ -196,8 +111,7 @@ namespace WinFormsApp1
                 if (max < Convert.ToDouble(row.Cells[5].Value))
                 {
                     max = Convert.ToDouble(row.Cells[5].Value);
-                    maxi = row.Cells[0].Value.ToString();
-                    dataGridView1.ClearSelection();
+                    maxi = row.Cells[0].Value.ToString()!;
                     row.Selected = true;
                 }
             }
@@ -211,132 +125,158 @@ namespace WinFormsApp1
 
         }
 
+        private void calcKraAl()
+        {
+            List<List<double>> aluminium = new List<List<double>>();
+            List<double> aluminiumResult = readDataGrid1(5);
+            resultLabel.Text = "Степень кореляции";
+            resultFuncLabel.Text = "Результатирующая функция";
+            fisherLabel.Text = "Критерий Фишера";
+
+            aluminium.Add(readDataGrid1(0));
+            aluminium.Add(readDataGrid1(1));
+            aluminium.Add(readDataGrid1(2));
+            aluminium.Add(readDataGrid1(3));
+            aluminium.Add(readDataGrid1(4));
+
+            kra.setValues(
+                aluminium, aluminiumResult
+            );
+            kra.startKra();
+            resultLabel.Text += "\n";
+
+            for (int i = 0; i < kra._result.Count; i++)
+            {
+                if (kra._result[i].r >= 0.7)
+                {
+                    dataGridView3.Columns[i].HeaderCell.Style.BackColor = Color.Green;
+                }
+                if (kra._result[i].r < 0.7 && kra._result[i].r >= 0.3)
+                {
+                    dataGridView3.Columns[i].HeaderCell.Style.BackColor = Color.Yellow;
+                }
+                if (kra._result[i].r < 0.3)
+                {
+                    dataGridView3.Columns[i].HeaderCell.Style.BackColor = Color.Red;
+                }
+                resultLabel.Text += (dataGridView3.Columns[i].HeaderText).ToString() + ' ' + kra._result[i].r.ToString() + $", Коэфициент детерминации R: {kra._result[i].bigR}" + '\n';
+            }
+
+            for (int j = 0; j < kra._result.Count; j++)
+            {
+                if (j == 0)
+                {
+                    resultFuncLabel.Text += " " + kra.kraA + $" + {kra._result[j].r}x{j + 1}";
+                    continue;
+                }
+                resultFuncLabel.Text += $" + {kra._result[j].r}x{j + 1}";
+            }
+
+            fisherLabel.Text += $": {kra.fisher}";
+
+            for (int i = 0; i < kra.pairCorrelations.Count; i++)
+            {
+                pairAlGrid.Rows.Add(
+                    kra.pairCorrelations[i][0],
+                    kra.pairCorrelations[i][1],
+                    kra.pairCorrelations[i][2],
+                    kra.pairCorrelations[i][3],
+                    kra.pairCorrelations[i][4],
+                    kra.pairCorrelations[i][5]
+                );
+                if (i != 5)
+                {
+                    pairAlGrid.Rows[i].HeaderCell.Value = $"x{i + 1}";
+                }
+                else
+                {
+                    pairAlGrid.Rows[i].HeaderCell.Value = "y";
+                }
+            }
+
+            kra._result.Clear();
+        }
+
+        private void calcCraCu()
+        {
+            List<List<double>> cu = new List<List<double>>();
+            List<double> cuResult = readDataGrid2(5);
+            corelationCu.Text = "Степень кореляции";
+            resultFuncCuLabel.Text = "Результатирующая функция";
+            fisherCuLabel.Text = "Критерий Фишера";
+
+            cu.Add(readDataGrid2(0));
+            cu.Add(readDataGrid2(1));
+            cu.Add(readDataGrid2(2));
+            cu.Add(readDataGrid2(3));
+            cu.Add(readDataGrid2(4));
+
+            kra.setValues(
+                cu, cuResult
+            );
+            kra.startKra();
+            corelationCu.Text += "\n";
+
+            for (int i = 0; i < kra._result.Count; i++)
+            {
+                if (kra._result[i].r >= 0.7)
+                {
+                    dataGridView4.Columns[i].HeaderCell.Style.BackColor = Color.Green;
+                }
+                if (kra._result[i].r < 0.7 && kra._result[i].r >= 0.3)
+                {
+                    dataGridView4.Columns[i].HeaderCell.Style.BackColor = Color.Yellow;
+                }
+                if (kra._result[i].r < 0.3)
+                {
+                    dataGridView4.Columns[i].HeaderCell.Style.BackColor = Color.Red;
+                }
+                corelationCu.Text += (dataGridView4.Columns[i].HeaderText).ToString() + ' ' + kra._result[i].r.ToString() + $", Коэфициент детерминации R: {kra._result[i].bigR}" + '\n';
+            }
+
+            for (int j = 0; j < kra._result.Count; j++)
+            {
+                if (j == 0)
+                {
+                    resultFuncCuLabel.Text += " " + kra.kraA + $" + {kra._result[j].r}x{j + 1}";
+                    continue;
+                }
+                resultFuncCuLabel.Text += $" + {kra._result[j].r}x{j + 1}";
+            }
+
+            fisherCuLabel.Text += $": {kra.fisher}";
+
+            for (int i = 0; i < kra.pairCorrelations.Count; i++)
+            {
+                pairCuGrid.Rows.Add(
+                    kra.pairCorrelations[i][0],
+                    kra.pairCorrelations[i][1],
+                    kra.pairCorrelations[i][2],
+                    kra.pairCorrelations[i][3],
+                    kra.pairCorrelations[i][4],
+                    kra.pairCorrelations[i][5]
+                );
+                if (i != 5)
+                {
+                    pairCuGrid.Rows[i].HeaderCell.Value = $"x{i + 1}";
+                }
+                else
+                {
+                    pairCuGrid.Rows[i].HeaderCell.Value = "y";
+                }
+            }
+
+            kra._result.Clear();
+        }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             //try
             //{
-                List<List<double>> aluminium = new List<List<double>>();
-                List<double> aluminiumResult = readDataGrid1(5);
-                resultLabel.Text = "Степень кореляции";
-                resultFuncLabel.Text = "Результатирующая функция";
+            calcKraAl();
+            calcCraCu();    
 
-                aluminium.Add(readDataGrid1(0));
-                aluminium.Add(readDataGrid1(1));
-                aluminium.Add(readDataGrid1(2));
-                aluminium.Add(readDataGrid1(3));
-                aluminium.Add(readDataGrid1(4));
-
-                kra.setValues(
-                    aluminium, aluminiumResult
-                //new List<double>() { 100, 150, 130, 45, 75 },
-                //new List<double>() { 100, 142, 140, 80, 60 },
-                //new List<double>() { 100, 150, 130, 45, 75 },
-                //new List<double>() { 100, 142, 140, 80, 60 }
-
-
-                //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
-                //new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 },
-                //new List<double>() { 5.34, 5.22, 5.44, 4.42, 5.5, 4.99, 4.55, 5.49, 5.29, 5.31, 5.72, 5 },
-                //new List<double>() { 103.5, 97.6, 101.1, 84.6, 103, 100.2, 90.5, 102.8, 99.3, 100.1, 104, 100.8 }
-                );
-                kra.startKra();
-                resultLabel.Text += "\n";
-
-                for (int i = 0; i < kra._result.Count; i++)
-                {
-                    if (kra._result[i].r >= 0.7)
-                    {
-                        dataGridView3.Columns[i].HeaderCell.Style.BackColor = Color.Green;
-                    }
-                    if (kra._result[i].r < 0.7 && kra._result[i].r >= 0.3)
-                    {
-                        dataGridView3.Columns[i].HeaderCell.Style.BackColor = Color.Yellow;
-                    }
-                    if (kra._result[i].r < 0.3)
-                    {
-                        dataGridView3.Columns[i].HeaderCell.Style.BackColor = Color.Red;
-                    }
-                    resultLabel.Text += (dataGridView3.Columns[i].HeaderText).ToString() + ' ' + kra._result[i].r.ToString() + $", Коэфициент детерминации R: {kra._result[i].bigR}" + '\n';
-                }
-
-                for (int j = 0; j < kra._result.Count; j++)
-                {
-                    if (j == 0)
-                    {
-                        resultFuncLabel.Text += " " + kra.kraA + $" + {kra._result[j].r}x{j + 1}";
-                        continue;
-                    }
-                    resultFuncLabel.Text += $" + {kra._result[j].r}x{j + 1}";
-                }
-
-                fisherLabel.Text += $": {kra.fisher}";
-
-                for (int i = 0; i < kra.pairCorrelations.Count; i++)
-                {
-                    pairAlGrid.Rows.Add(
-                        kra.pairCorrelations[i][0], 
-                        kra.pairCorrelations[i][1], 
-                        kra.pairCorrelations[i][2], 
-                        kra.pairCorrelations[i][3], 
-                        kra.pairCorrelations[i][4], 
-                        kra.pairCorrelations[i][5]
-                    );
-                    if(i != 5)
-                    {
-                        pairAlGrid.Rows[i].HeaderCell.Value = $"x{i+1}";
-                    }
-                    else
-                    {
-                        pairAlGrid.Rows[i].HeaderCell.Value = "y";
-                    }
-                }
-
-                kra._result.Clear();
-
-                //if (Double.IsNaN(kra.elasticAl))
-                //{
-                //    MessageBox.Show("Некоректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-
-                //this.toggleLabels(true);
-
-                //label2.Text = $"Эластичность {kra.elasticAl}";
-                //label3.Text = $"Эластичность {kra.elasticCu}";
-
-                //label4.Text = $"Уравнение регрессии Алюминий {kra.regressionExpressionAl}";
-                //label5.Text = $"Уравнение регрессии Медь {kra.regressionExpressionCu}";
-
-                //label6.Text = $"Коэффициент кореляции r: {kra.r}";
-                //label7.Text = $"Коэффициент кореляции r: {kra.rCu}";
-
-                //label8.Text = $"Параметр а0 {kra.countA0}";
-                //label13.Text = $"Параметр а0 {kra.countA0Cu}";
-
-                //label21.Text = $"Параметр а1 {kra.countA1}";
-                //label20.Text = $"Параметр а1 {kra.countA1Cu}";
-
-                //label19.Text = $"SigmaY {kra.sigmaY}";
-                //label18.Text = $"SigmaY {kra.sigmaYCu}";
-
-                //label8.Text = $"SigmaYX {kra.sigmaYX}";
-                //label9.Text = $"SigmaYX {kra.sigmaYXCu}";
-
-                //label17.Text = $"Коэфициент детерминации R {kra.bigR}";
-                //label16.Text = $"Коэфициент детерминации R {kra.bigRCu}";
-
-                //if (kra.bigR > kra.bigRCu)
-                //{
-                //    label14.Text = "Итог прогнозирования: увеличить производство алюминевых радиаторов на следующий период";
-                //}
-                //else if (kra.bigR == kra.bigRCu)
-                //{
-                //    label14.Text = "Сбалансированное производство. Изменений не требуется.";
-                //}
-                //else
-                //{
-                //    label14.Text = "Итог прогнозирования: увеличить производство медных радиаторов на следующий период";
-                //}
+                
             //}
             //catch (Exception exc)
             //{
