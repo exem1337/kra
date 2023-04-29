@@ -160,7 +160,6 @@ namespace WinFormsApp1
                 {
                     dataGridView3.Columns[i].HeaderCell.Style.BackColor = Color.Red;
                 }
-                resultLabel.Text += (dataGridView3.Columns[i].HeaderText).ToString() + ' ' + kraAl._result[i].r.ToString() + $", Коэфициент детерминации R: {kraAl._result[i].bigR}" + '\n';
             }
 
             for (int j = 0; j < kraAl.finalKoefs.Count; j++)
@@ -252,7 +251,6 @@ namespace WinFormsApp1
                 {
                     dataGridView4.Columns[i].HeaderCell.Style.BackColor = Color.Red;
                 }
-                corelationCu.Text += (dataGridView4.Columns[i].HeaderText).ToString() + ' ' + kraCu._result[i].r.ToString() + $", Коэфициент детерминации R: {kraCu._result[i].bigR}" + '\n';
             }
 
             for (int j = 0; j < kraCu.finalKoefs.Count; j++)
