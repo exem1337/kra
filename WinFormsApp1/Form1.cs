@@ -29,7 +29,8 @@ namespace WinFormsApp1
             dataGridView4.Rows.Add(22, 2500, 2550, 40000, 5, 280);
         }
 
-        protected KRA kra = new KRA();
+        protected KRA kraAl = new KRA();
+        protected KRA kraCu = new KRA();
 
         private void toggleLabels(bool value)
         {
@@ -139,50 +140,50 @@ namespace WinFormsApp1
             aluminium.Add(readDataGrid1(3));
             aluminium.Add(readDataGrid1(4));
 
-            kra.setValues(
+            kraAl.setValues(
                 aluminium, aluminiumResult
             );
-            kra.startKra();
+            kraAl.startKra();
             resultLabel.Text += "\n";
 
-            for (int i = 0; i < kra._result.Count; i++)
+            for (int i = 0; i < kraAl._result.Count; i++)
             {
-                if (kra._result[i].r >= 0.7)
+                if (kraAl._result[i].r >= 0.7)
                 {
                     dataGridView3.Columns[i].HeaderCell.Style.BackColor = Color.Green;
                 }
-                if (kra._result[i].r < 0.7 && kra._result[i].r >= 0.3)
+                if (kraAl._result[i].r < 0.7 && kraAl._result[i].r >= 0.3)
                 {
                     dataGridView3.Columns[i].HeaderCell.Style.BackColor = Color.Yellow;
                 }
-                if (kra._result[i].r < 0.3)
+                if (kraAl._result[i].r < 0.3)
                 {
                     dataGridView3.Columns[i].HeaderCell.Style.BackColor = Color.Red;
                 }
-                resultLabel.Text += (dataGridView3.Columns[i].HeaderText).ToString() + ' ' + kra._result[i].r.ToString() + $", Коэфициент детерминации R: {kra._result[i].bigR}" + '\n';
+                resultLabel.Text += (dataGridView3.Columns[i].HeaderText).ToString() + ' ' + kraAl._result[i].r.ToString() + $", Коэфициент детерминации R: {kraAl._result[i].bigR}" + '\n';
             }
 
-            for (int j = 0; j < kra._result.Count; j++)
+            for (int j = 0; j < kraAl.finalKoefs.Count; j++)
             {
                 if (j == 0)
                 {
-                    resultFuncLabel.Text += " " + kra.kraA + $" + {kra._result[j].r}x{j + 1}";
+                    resultFuncLabel.Text += " " + kraAl.finalKoefs[0];
                     continue;
                 }
-                resultFuncLabel.Text += $" + {kra._result[j].r}x{j + 1}";
+                resultFuncLabel.Text += $" + {kraAl.finalKoefs[j]} x{j}";
             }
 
-            fisherLabel.Text += $": {kra.fisher}";
+            fisherLabel.Text += $": {kraAl.result.fisher}";
 
-            for (int i = 0; i < kra.pairCorrelations.Count; i++)
+            for (int i = 0; i < kraAl.pairCorrelations.Count; i++)
             {
                 pairAlGrid.Rows.Add(
-                    kra.pairCorrelations[i][0],
-                    kra.pairCorrelations[i][1],
-                    kra.pairCorrelations[i][2],
-                    kra.pairCorrelations[i][3],
-                    kra.pairCorrelations[i][4],
-                    kra.pairCorrelations[i][5]
+                    kraAl.pairCorrelations[i][0],
+                    kraAl.pairCorrelations[i][1],
+                    kraAl.pairCorrelations[i][2],
+                    kraAl.pairCorrelations[i][3],
+                    kraAl.pairCorrelations[i][4],
+                    kraAl.pairCorrelations[i][5]
                 );
                 if (i != 5)
                 {
@@ -194,7 +195,27 @@ namespace WinFormsApp1
                 }
             }
 
-            kra._result.Clear();
+            for (int i = 0; i < kraAl.result.elastics.Count; i++)
+            {
+                label2.Text += $"\nE{i + 1} = {kraAl.result.elastics[i]}";
+            }
+
+            for (int i = 0; i < kraAl.result.studentCriterias.Count; i++)
+            {
+                label4.Text += $"\nt{i + 1} = {kraAl.result.studentCriterias[i]}";
+            }
+
+            for (int i = 0; i < kraAl.result.paramsDispersion.Count; i++)
+            {
+                label6.Text += $"\nSb{i} = {kraAl.result.paramsDispersion[i]}";
+            }
+
+            alOtherResults.Text += "\n" + $"Оценка дисперсии: {kraAl.result.epsilonSquared}";
+            alOtherResults.Text += "\n" + $"Средняя ошибка аппроксимации: {kraAl.result.avgApproximation}%";
+            alOtherResults.Text += "\n" + $"Несмещенная оценка дисперсии : {kraAl.result.unshiftedDispersion}";
+            alOtherResults.Text += "\n" + $"Среднеквадратическое отклонение: {kraAl.result.avgSquaredShift}";
+
+            kraAl._result.Clear();
         }
 
         private void calcCraCu()
@@ -211,50 +232,50 @@ namespace WinFormsApp1
             cu.Add(readDataGrid2(3));
             cu.Add(readDataGrid2(4));
 
-            kra.setValues(
+            kraCu.setValues(
                 cu, cuResult
             );
-            kra.startKra();
+            kraCu.startKra();
             corelationCu.Text += "\n";
 
-            for (int i = 0; i < kra._result.Count; i++)
+            for (int i = 0; i < kraCu._result.Count; i++)
             {
-                if (kra._result[i].r >= 0.7)
+                if (kraCu._result[i].r >= 0.7)
                 {
                     dataGridView4.Columns[i].HeaderCell.Style.BackColor = Color.Green;
                 }
-                if (kra._result[i].r < 0.7 && kra._result[i].r >= 0.3)
+                if (kraCu._result[i].r < 0.7 && kraCu._result[i].r >= 0.3)
                 {
                     dataGridView4.Columns[i].HeaderCell.Style.BackColor = Color.Yellow;
                 }
-                if (kra._result[i].r < 0.3)
+                if (kraCu._result[i].r < 0.3)
                 {
                     dataGridView4.Columns[i].HeaderCell.Style.BackColor = Color.Red;
                 }
-                corelationCu.Text += (dataGridView4.Columns[i].HeaderText).ToString() + ' ' + kra._result[i].r.ToString() + $", Коэфициент детерминации R: {kra._result[i].bigR}" + '\n';
+                corelationCu.Text += (dataGridView4.Columns[i].HeaderText).ToString() + ' ' + kraCu._result[i].r.ToString() + $", Коэфициент детерминации R: {kraCu._result[i].bigR}" + '\n';
             }
 
-            for (int j = 0; j < kra._result.Count; j++)
+            for (int j = 0; j < kraCu.finalKoefs.Count; j++)
             {
                 if (j == 0)
                 {
-                    resultFuncCuLabel.Text += " " + kra.kraA + $" + {kra._result[j].r}x{j + 1}";
+                    resultFuncCuLabel.Text += " " + kraCu.finalKoefs[0];
                     continue;
                 }
-                resultFuncCuLabel.Text += $" + {kra._result[j].r}x{j + 1}";
+                resultFuncCuLabel.Text += $" + {kraCu.finalKoefs[j]} x{j}";
             }
 
-            fisherCuLabel.Text += $": {kra.fisher}";
+            fisherCuLabel.Text += $": {kraCu.result.fisher}";
 
-            for (int i = 0; i < kra.pairCorrelations.Count; i++)
+            for (int i = 0; i < kraCu.pairCorrelations.Count; i++)
             {
                 pairCuGrid.Rows.Add(
-                    kra.pairCorrelations[i][0],
-                    kra.pairCorrelations[i][1],
-                    kra.pairCorrelations[i][2],
-                    kra.pairCorrelations[i][3],
-                    kra.pairCorrelations[i][4],
-                    kra.pairCorrelations[i][5]
+                    kraCu.pairCorrelations[i][0],
+                    kraCu.pairCorrelations[i][1],
+                    kraCu.pairCorrelations[i][2],
+                    kraCu.pairCorrelations[i][3],
+                    kraCu.pairCorrelations[i][4],
+                    kraCu.pairCorrelations[i][5]
                 );
                 if (i != 5)
                 {
@@ -266,7 +287,27 @@ namespace WinFormsApp1
                 }
             }
 
-            kra._result.Clear();
+            for (int i = 0; i < kraCu.result.elastics.Count; i++)
+            {
+                label17.Text += $"\nE{i + 1} = {kraCu.result.elastics[i]}";
+            }
+
+            for (int i = 0; i < kraCu.result.studentCriterias.Count; i++)
+            {
+                label16.Text += $"\nt{i + 1} = {kraCu.result.studentCriterias[i]}";
+            }
+
+            for (int i = 0; i < kraCu.result.paramsDispersion.Count; i++)
+            {
+                label15.Text += $"\nSb{i} = {kraCu.result.paramsDispersion[i]}";
+            }
+
+            cuOtherResults.Text += "\n" + $"Оценка дисперсии: {kraCu.result.epsilonSquared}";
+            cuOtherResults.Text += "\n" + $"Средняя ошибка аппроксимации: {kraCu.result.avgApproximation}%";
+            cuOtherResults.Text += "\n" + $"Несмещенная оценка дисперсии : {kraCu.result.unshiftedDispersion}";
+            cuOtherResults.Text += "\n" + $"Среднеквадратическое отклонение: {kraCu.result.avgSquaredShift}";
+
+            kraCu._result.Clear();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -288,6 +329,32 @@ namespace WinFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            label13.Text += kraAl.calcYPredict(
+                new List<double>() {
+                    Convert.ToDouble(alTb1.Text),
+                    Convert.ToDouble(alTb2.Text),
+                    Convert.ToDouble(alTb3.Text),
+                    Convert.ToDouble(alTb4.Text),
+                    Convert.ToDouble(alTb5.Text)
+                }
+            );
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            label14.Text += kraCu.calcYPredict(
+                new List<double>() {
+                    Convert.ToDouble(cuTb1.Text),
+                    Convert.ToDouble(cuTb2.Text),
+                    Convert.ToDouble(cuTb3.Text),
+                    Convert.ToDouble(cuTb4.Text),
+                    Convert.ToDouble(cuTb5.Text)
+                }
+            );
         }
     }
 }
